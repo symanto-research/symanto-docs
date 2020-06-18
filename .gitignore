@@ -25,3 +25,5 @@ doc/
 
 # Vagrant artifacts
 ubuntu-*-console.log
+gh-pages
+gh-pages.pub
