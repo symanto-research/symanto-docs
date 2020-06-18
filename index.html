@@ -322,7 +322,7 @@ You must replace <code>opensesame</code> with your personal API key.
 </span></code></pre></div>
 <p>This endpoint retrieves all psychological aspects of the author. Supported Languages: ar, cn, de, en, es, fr, it, nl, pt, ru, tr</p>
 <h3 id='http-request'>HTTP Request</h3>
-<p><code>POST http://example.com/api/kittens</code></p>
+<p><code>POST https://api.symanto.net/communication</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
 <table><thead>
 <tr>
@@ -341,23 +341,23 @@ You must replace <code>opensesame</code> with your personal API key.
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Optionality</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>-</td>
+<td>Optional</td>
 <td>id of the post</td>
 </tr>
 <tr>
 <td>text</td>
-<td>-</td>
+<td>Required</td>
 <td>the text to analyse</td>
 </tr>
 <tr>
 <td>language</td>
-<td>-</td>
+<td>Required</td>
 <td>language_code of the text</td>
 </tr>
 </tbody></table>
@@ -412,23 +412,23 @@ Retrieved emotions can be any of:
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Optionality</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>-</td>
+<td>Optional</td>
 <td>id of the post</td>
 </tr>
 <tr>
 <td>text</td>
-<td>-</td>
+<td>Required</td>
 <td>the text to analyse</td>
 </tr>
 <tr>
 <td>language</td>
-<td>-</td>
+<td>Required</td>
 <td>language_code of the text</td>
 </tr>
 </tbody></table>
@@ -481,23 +481,23 @@ Our model identifies whether an author is Emotional (relationship-oriented, focu
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Optionality</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>-</td>
+<td>Optional</td>
 <td>id of the post</td>
 </tr>
 <tr>
 <td>text</td>
-<td>-</td>
+<td>Required</td>
 <td>the text to analyse</td>
 </tr>
 <tr>
 <td>language</td>
-<td>-</td>
+<td>Required</td>
 <td>language_code of the text</td>
 </tr>
 </tbody></table>
@@ -548,23 +548,23 @@ Returned labels:
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Optionality</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>-</td>
+<td>Optional</td>
 <td>id of the post</td>
 </tr>
 <tr>
 <td>text</td>
-<td>-</td>
+<td>Required</td>
 <td>the text to analyse</td>
 </tr>
 <tr>
 <td>language</td>
-<td>-</td>
+<td>Required</td>
 <td>language_code of the text</td>
 </tr>
 </tbody></table>
@@ -644,23 +644,23 @@ Returned labels:
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Optionality</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>-</td>
+<td>Optional</td>
 <td>id of the post</td>
 </tr>
 <tr>
 <td>text</td>
-<td>-</td>
+<td>Required</td>
 <td>the text to analyse</td>
 </tr>
 <tr>
 <td>language</td>
-<td>-</td>
+<td>Required</td>
 <td>language_code of the text</td>
 </tr>
 </tbody></table>
@@ -688,18 +688,18 @@ language_code of the detected language</p>
 <table><thead>
 <tr>
 <th>Parameter</th>
-<th>Default</th>
+<th>Optionality</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>id</td>
-<td>-</td>
+<td>Optional</td>
 <td>id of the post</td>
 </tr>
 <tr>
 <td>text</td>
-<td>-</td>
+<td>Required</td>
 <td>the text to analyse</td>
 </tr>
 </tbody></table>
