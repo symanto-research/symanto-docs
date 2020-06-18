@@ -258,7 +258,7 @@ id | Optional | id of the post
 text | Required | the text to analyse
 language | Required | language_code of the text
 
-## Extract topics and sentiments and relate them
+## Topic sentiment extraction
 
 ```shell
 curl -X POST "https://api.symanto.net/topic-sentiment" 
