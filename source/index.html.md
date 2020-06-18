@@ -42,6 +42,7 @@ You must replace <code>opensesame</code> with your personal API key.
 curl -X POST "https://api.symanto.net/communication" 
 -H "accept: application/json" 
 -H "Content-Type: application/json" 
+-H "x-api-key: opensesame" 
 -d "[{\"id\":1,\"text\":\"I love the service\",\"language\":\"en\"}]"
 ```
 
@@ -116,6 +117,7 @@ Remember — to successfully run this you need to authenticate using a valid api
 curl -X POST "https://api.symanto.net/emotion" 
 -H "accept: application/json" 
 -H "Content-Type: application/json" 
+-H "x-api-key: opensesame" 
 -d "[{\"id\":1,\"text\":\"I love the service\",\"language\":\"en\"}]"
 ```
 
@@ -170,6 +172,7 @@ language | Required | language_code of the text
 curl -X POST "https://api.symanto.net/personality" 
 -H "accept: application/json" 
 -H "Content-Type: application/json" 
+-H "x-api-key: opensesame" 
 -d "[{\"id\":1,\"text\":\"I love the service\",\"language\":\"en\"}]"
 ```
 
@@ -224,6 +227,7 @@ language | Required | language_code of the text
 curl -X POST "https://api.symanto.net/sentiment" 
 -H "accept: application/json" 
 -H "Content-Type: application/json" 
+-H "x-api-key: opensesame" 
 -d "[{\"id\":1,\"text\":\"I love the service\",\"language\":\"en\"}]"
 ```
 
@@ -274,6 +278,7 @@ language | Required | language_code of the text
 curl -X POST "https://api.symanto.net/topic-sentiment" 
 -H "accept: application/json" 
 -H "Content-Type: application/json" 
+-H "x-api-key: opensesame" 
 -d "[{\"id\":1,\"text\":\"I love the service\",\"language\":\"en\"}]"
 ```
 
@@ -354,6 +359,7 @@ language | Required | language_code of the text
 curl -X POST "https://api.symanto.net/language-detection" 
 -H "accept: application/json" 
 -H "Content-Type: application/json" 
+-H "x-api-key: opensesame" 
 -d "[{\"id\":1,\"text\":\"I love the service\"}]"
 ```
 
