@@ -233,6 +233,18 @@
                   <li>
                     <a href="#emotion-analysis" class="toc-h2 toc-link" data-title="Emotion Analysis">Emotion Analysis</a>
                   </li>
+                  <li>
+                    <a href="#personality-traits" class="toc-h2 toc-link" data-title="Personality Traits">Personality Traits</a>
+                  </li>
+                  <li>
+                    <a href="#sentiment-analysis" class="toc-h2 toc-link" data-title="Sentiment Analysis">Sentiment Analysis</a>
+                  </li>
+                  <li>
+                    <a href="#extract-topics-and-sentiments-and-relate-them" class="toc-h2 toc-link" data-title="Extract topics and sentiments and relate them">Extract topics and sentiments and relate them</a>
+                  </li>
+                  <li>
+                    <a href="#language-detection" class="toc-h2 toc-link" data-title="Language Detection">Language Detection</a>
+                  </li>
               </ul>
           </li>
           <li>
@@ -252,8 +264,6 @@
 <p>We have language binding in Shell. You can view code examples in the dark area to the right.</p>
 <h1 id='authentication'>Authentication</h1>
 <blockquote>
-<p>To authorize, you need an api key. to create one visit this link:</p>
-
 <p>Make sure to replace <code>opensesame</code> with your API key.</p>
 </blockquote>
 
@@ -420,6 +430,277 @@ Retrieved emotions can be any of:
 <td>language</td>
 <td>-</td>
 <td>language_code of the text</td>
+</tr>
+</tbody></table>
+<h2 id='personality-traits'>Personality Traits</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://api.symanto.net/personality"</span> 
+<span class="nt">-H</span> <span class="s2">"accept: application/json"</span> 
+<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
+<span class="nt">-d</span> <span class="s2">"[{</span><span class="se">\"</span><span class="s2">id</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">text</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">I love the service</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">language</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">}]"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"predictions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"prediction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"probability"</span><span class="p">:</span><span class="w"> </span><span class="mi">0</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre></div>
+<p>Personality traits evaluates content and writing style to determine how the author makes decisions.
+Our model identifies whether an author is Emotional (relationship-oriented, focusing on social values and empathy) or Rational (objective and pragmatic, focusing on facts and logical deduction).</p>
+
+<p>Supported Languages: ar, cn, de, en, es, fr, it, nl, pt, ru, tr</p>
+
+<p>Returned labels:
+. yes
+. no</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>POST https://api.symanto.net/personality</code></p>
+<h3 id='query-parameters-3'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>all</td>
+<td>false</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='request-body-schema-application-json-3'>REQUEST BODY SCHEMA : application/json</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>-</td>
+<td>id of the post</td>
+</tr>
+<tr>
+<td>text</td>
+<td>-</td>
+<td>the text to analyse</td>
+</tr>
+<tr>
+<td>language</td>
+<td>-</td>
+<td>language_code of the text</td>
+</tr>
+</tbody></table>
+<h2 id='sentiment-analysis'>Sentiment Analysis</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://api.symanto.net/sentiment"</span> 
+<span class="nt">-H</span> <span class="s2">"accept: application/json"</span> 
+<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
+<span class="nt">-d</span> <span class="s2">"[{</span><span class="se">\"</span><span class="s2">id</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">text</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">I love the service</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">language</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">}]"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"predictions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"prediction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"positive"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"probability"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9802348613739014</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+
+</span></code></pre></div>
+<p>Understand whether your text has a positive or negative sentiment.
+Supported Languages: en, de, es
+Returned labels:
+. positive
+. negative
+. unrecognized</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST https://api.symanto.net/sentiment</code></p>
+<h3 id='query-parameters-4'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>all</td>
+<td>false</td>
+<td></td>
+</tr>
+</tbody></table>
+<h3 id='request-body-schema-application-json-4'>REQUEST BODY SCHEMA : application/json</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>-</td>
+<td>id of the post</td>
+</tr>
+<tr>
+<td>text</td>
+<td>-</td>
+<td>the text to analyse</td>
+</tr>
+<tr>
+<td>language</td>
+<td>-</td>
+<td>language_code of the text</td>
+</tr>
+</tbody></table>
+<h2 id='extract-topics-and-sentiments-and-relate-them'>Extract topics and sentiments and relate them</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://api.symanto.net/topic-sentiment"</span> 
+<span class="nt">-H</span> <span class="s2">"accept: application/json"</span> 
+<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
+<span class="nt">-d</span> <span class="s2">"[{</span><span class="se">\"</span><span class="s2">id</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">text</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">I love the service</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">language</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">}]"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Hello I love the service"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"topicSentiments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"topic"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"end"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Service"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the service"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Service General"</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"sentiment"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+                    </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"end"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"love"</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                    </span><span class="nl">"scale"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="w">
+                </span><span class="p">},</span><span class="w">
+                </span><span class="nl">"sentence"</span><span class="p">:</span><span class="w"> </span><span class="s2">"love the service"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"sentiments"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"end"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"love"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"positive"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"scale"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"parentCategory"</span><span class="p">:</span><span class="w"> </span><span class="s2">""</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">],</span><span class="w">
+        </span><span class="nl">"topics"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"start"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"end"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"topic"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Service"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"text"</span><span class="p">:</span><span class="w"> </span><span class="s2">"the service"</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"category"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Service General"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>This endpoint extracts topics and sentiments from the text and tries to see if there is a meaningful relation between them. </p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST https://api.symanto.net/topic-sentiment</code></p>
+<h3 id='query-parameters-5'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>domain</td>
+<td>-</td>
+<td>Enum: &quot;Ecom&quot; &quot;Employee&quot;. Provide analysis domain for better extraction (optional)</td>
+</tr>
+</tbody></table>
+<h3 id='request-body-schema-application-json-5'>REQUEST BODY SCHEMA : application/json</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>-</td>
+<td>id of the post</td>
+</tr>
+<tr>
+<td>text</td>
+<td>-</td>
+<td>the text to analyse</td>
+</tr>
+<tr>
+<td>language</td>
+<td>-</td>
+<td>language_code of the text</td>
+</tr>
+</tbody></table>
+<h2 id='language-detection'>Language Detection</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://api.symanto.net/language-detection"</span> 
+<span class="nt">-H</span> <span class="s2">"accept: application/json"</span> 
+<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
+<span class="nt">-d</span> <span class="s2">"[{</span><span class="se">\"</span><span class="s2">id</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">text</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">I love the service</span><span class="se">\"</span><span class="s2">}]"</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"detected_language"</span><span class="p">:</span><span class="w"> </span><span class="s2">"en"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>Identifies what language a text is written in. Only languages that our API supports can be analyzed.
+Returned labels:
+language_code of the detected language</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>POST https://api.symanto.net/language-detection</code></p>
+<h3 id='request-body-schema-application-json-6'>REQUEST BODY SCHEMA : application/json</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>-</td>
+<td>id of the post</td>
+</tr>
+<tr>
+<td>text</td>
+<td>-</td>
+<td>the text to analyse</td>
 </tr>
 </tbody></table>
 <h1 id='errors'>Errors</h1>
