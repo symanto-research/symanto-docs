@@ -97,7 +97,7 @@ This endpoint retrieves all psychological aspects of the author. Supported Langu
 
 Parameter | Default | Description
 --------- | ------- | -----------
-all | false | 
+all | false | returns all predictions, not only the most probable one
 
 ### REQUEST BODY SCHEMA : application/json
 
@@ -154,7 +154,7 @@ Retrieved emotions can be any of:
 
 Parameter | Default | Description
 --------- | ------- | -----------
-all | false | 
+all | false | returns all predictions, not only the most probable one
 
 ### REQUEST BODY SCHEMA : application/json
 
@@ -211,7 +211,7 @@ Returned labels:
 
 Parameter | Default | Description
 --------- | ------- | -----------
-all | false | 
+all | false | returns all predictions, not only the most probable one
 
 ### REQUEST BODY SCHEMA : application/json
 
@@ -262,7 +262,7 @@ Returned labels:
 
 Parameter | Default | Description
 --------- | ------- | -----------
-all | false | 
+all | false | returns all predictions, not only the most probable one
 
 ### REQUEST BODY SCHEMA : application/json
 
