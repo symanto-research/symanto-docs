@@ -279,6 +279,7 @@ You must replace <code>opensesame</code> with your personal API key.
 <h1 id='text-analysis'>Text Analysis</h1><h2 id='communication-amp-tonality'>Communication &amp; Tonality</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://api.symanto.net/communication"</span> 
 <span class="nt">-H</span> <span class="s2">"accept: application/json"</span> 
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
+<span class="nt">-H</span> <span class="s2">"x-api-key: opensesame"</span> 
 <span class="nt">-d</span> <span class="s2">"[{</span><span class="se">\"</span><span class="s2">id</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">text</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">I love the service</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">language</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">}]"</span>
 </code></pre></div>
 <blockquote>
@@ -368,6 +369,7 @@ Remember — to successfully run this you need to authenticate using a valid api
 <h2 id='emotion-analysis'>Emotion Analysis</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://api.symanto.net/emotion"</span> 
 <span class="nt">-H</span> <span class="s2">"accept: application/json"</span> 
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
+<span class="nt">-H</span> <span class="s2">"x-api-key: opensesame"</span> 
 <span class="nt">-d</span> <span class="s2">"[{</span><span class="se">\"</span><span class="s2">id</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">text</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">I love the service</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">language</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">}]"</span>
 </code></pre></div>
 <blockquote>
@@ -435,6 +437,7 @@ Retrieved emotions can be any of:
 <h2 id='personality-traits'>Personality Traits</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://api.symanto.net/personality"</span> 
 <span class="nt">-H</span> <span class="s2">"accept: application/json"</span> 
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
+<span class="nt">-H</span> <span class="s2">"x-api-key: opensesame"</span> 
 <span class="nt">-d</span> <span class="s2">"[{</span><span class="se">\"</span><span class="s2">id</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">text</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">I love the service</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">language</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">}]"</span>
 </code></pre></div>
 <blockquote>
@@ -504,6 +507,7 @@ Our model identifies whether an author is Emotional (relationship-oriented, focu
 <h2 id='sentiment-analysis'>Sentiment Analysis</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://api.symanto.net/sentiment"</span> 
 <span class="nt">-H</span> <span class="s2">"accept: application/json"</span> 
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
+<span class="nt">-H</span> <span class="s2">"x-api-key: opensesame"</span> 
 <span class="nt">-d</span> <span class="s2">"[{</span><span class="se">\"</span><span class="s2">id</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">text</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">I love the service</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">language</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">}]"</span>
 </code></pre></div>
 <blockquote>
@@ -571,6 +575,7 @@ Returned labels:
 <h2 id='extract-topics-and-sentiments-and-relate-them'>Extract topics and sentiments and relate them</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://api.symanto.net/topic-sentiment"</span> 
 <span class="nt">-H</span> <span class="s2">"accept: application/json"</span> 
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
+<span class="nt">-H</span> <span class="s2">"x-api-key: opensesame"</span> 
 <span class="nt">-d</span> <span class="s2">"[{</span><span class="se">\"</span><span class="s2">id</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">text</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">I love the service</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">language</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">}]"</span>
 </code></pre></div>
 <blockquote>
@@ -667,6 +672,7 @@ Returned labels:
 <h2 id='language-detection'>Language Detection</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://api.symanto.net/language-detection"</span> 
 <span class="nt">-H</span> <span class="s2">"accept: application/json"</span> 
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
+<span class="nt">-H</span> <span class="s2">"x-api-key: opensesame"</span> 
 <span class="nt">-d</span> <span class="s2">"[{</span><span class="se">\"</span><span class="s2">id</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">text</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">I love the service</span><span class="se">\"</span><span class="s2">}]"</span>
 </code></pre></div>
 <blockquote>
