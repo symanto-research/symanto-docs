@@ -27,24 +27,26 @@ We have language binding in Shell. You can view code examples in the dark area t
 
 > Make sure to replace `opensesame` with your API key.
 
-Kittn uses API keys to allow access to the API. You can register a new Kittn API key at our [developer portal](http://example.com/developers).
+Symanto API uses API keys to allow access to the API. You can register a new Symanto API key at our [developer portal](https://developers.symanto.net/signup).
 
-Kittn expects for the API key to be included in all API requests to the server in a header that looks like the following:
+Symanto API expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
-`Authorization: opensesame`
+`x-api-key: opensesame`
 
 <aside class="notice">
-You must replace <code>meowmeowmeow</code> with your personal API key.
+You must replace <code>opensesame</code> with your personal API key.
 </aside>
 
-# Kittens
+# Text Analysis 
 
-## Get All Kittens
+## Communication & Tonality
 
 
 ```shell
-curl "http://example.com/api/kittens"
-  -H "Authorization: opensesame"
+curl -X POST "https://api.symanto.net/communication" 
+-H "accept: application/json" 
+-H "Content-Type: application/json" 
+-d "[{\"id\":1,\"text\":\"I love the service\",\"language\":\"en\"}]"
 ```
 
 
@@ -53,98 +55,115 @@ curl "http://example.com/api/kittens"
 ```json
 [
   {
-    "id": 1,
-    "name": "Fluffums",
-    "breed": "calico",
-    "fluffiness": 6,
-    "cuteness": 7
-  },
-  {
-    "id": 2,
-    "name": "Max",
-    "breed": "unknown",
-    "fluffiness": 5,
-    "cuteness": 10
+    "id": "string",
+    "personalities": [
+      {
+        "prediction": "string",
+        "probability": 0
+      }
+    ],
+    "self": [
+      {
+        "prediction": "string",
+        "probability": 0
+      }
+    ],
+    "info": [
+      {
+        "prediction": "string",
+        "probability": 0
+      }
+    ],
+    "action": [
+      {
+        "prediction": "string",
+        "probability": 0
+      }
+    ],
+    "fact": [
+      {
+        "prediction": "string",
+        "probability": 0
+      }
+    ]
   }
 ]
 ```
 
-This endpoint retrieves all kittens.
+This endpoint retrieves all psychological aspects of the author. Supported Languages: ar, cn, de, en, es, fr, it, nl, pt, ru, tr
 
 ### HTTP Request
 
-`GET http://example.com/api/kittens`
+`POST http://example.com/api/kittens`
 
 ### Query Parameters
 
 Parameter | Default | Description
 --------- | ------- | -----------
-include_cats | false | If set to true, the result will also include cats.
-available | true | If set to false, the result will include kittens that have already been adopted.
+all | false | 
+
+### REQUEST BODY SCHEMA : application/json
+
+Parameter | Default | Description
+--------- | ------- | -----------
+id | - | id of the post
+text | - | the text to analyse
+language | - | language_code of the text
 
 <aside class="success">
-Remember — a happy kitten is an authenticated kitten!
+Remember — to successfully run this you need to authenticate using a valid api-key.
 </aside>
 
-## Get a Specific Kitten
+## Emotion Analysis
 
 ```shell
-curl "http://example.com/api/kittens/2"
-  -H "Authorization: opensesame"
+curl -X POST "https://api.symanto.net/emotion" 
+-H "accept: application/json" 
+-H "Content-Type: application/json" 
+-d "[{\"id\":1,\"text\":\"I love the service\",\"language\":\"en\"}]"
 ```
 
 
 > The above command returns JSON structured like this:
 
 ```json
-{
-  "id": 2,
-  "name": "Max",
-  "breed": "unknown",
-  "fluffiness": 5,
-  "cuteness": 10
-}
+[
+  {
+    "id": "string",
+    "predictions": [
+      {
+        "prediction": "string",
+        "probability": 0
+      }
+    ]
+  }
+]
 ```
 
-This endpoint retrieves a specific kitten.
-
-<aside class="warning">Inside HTML code blocks like this one, you can't use Markdown, so use <code>&lt;code&gt;</code> blocks to denote code.</aside>
+This endpoint retrieves emotions from the written text. Supported language codes are:en,de,es
+Retrieved emotions can be any of:
+. anger
+. joy
+. love
+. sadness
+. unrecognized
 
 ### HTTP Request
 
-`GET http://example.com/kittens/<ID>`
+`POST https://api.symanto.net/emotion`
 
-### URL Parameters
+### Query Parameters
 
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to retrieve
+Parameter | Default | Description
+--------- | ------- | -----------
+all | false | 
 
-## Delete a Specific Kitten
+### REQUEST BODY SCHEMA : application/json
 
-```shell
-curl "http://example.com/api/kittens/2"
-  -X DELETE
-  -H "Authorization: opensesame"
-```
-> The above command returns JSON structured like this:
+Parameter | Default | Description
+--------- | ------- | -----------
+id | - | id of the post
+text | - | the text to analyse
+language | - | language_code of the text
 
-```json
-{
-  "id": 2,
-  "deleted" : ":("
-}
-```
-
-This endpoint deletes a specific kitten.
-
-### HTTP Request
-
-`DELETE http://example.com/kittens/<ID>`
-
-### URL Parameters
-
-Parameter | Description
---------- | -----------
-ID | The ID of the kitten to delete
 
