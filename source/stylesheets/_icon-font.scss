@@ -10,6 +10,38 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'TSTARPRO-Regular';
+  src:font-url('TSTARPRO-Regular.eot?-syv14m');
+  src:font-url('TSTARPRO-Regular.eot?#iefix-syv14m') format('embedded-opentype'),
+    font-url('TSTARPRO-Regular.woff?-syv14m') format('woff'),
+    font-url('TSTARPRO-Regular.ttf?-syv14m') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'TSTARPRO-Bold';
+  src:font-url('TSTARPRO-Bold.eot?-syv14m');
+  src:font-url('TSTARPRO-Bold.eot?#iefix-syv14m') format('embedded-opentype'),
+    font-url('TSTARPRO-Bold.woff?-syv14m') format('woff'),
+    font-url('TSTARPRO-Bold.ttf?-syv14m') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'JetbrainsMono-Regular';
+  src:font-url('JetbrainsMono-Regular.eot?-syv14m');
+  src:font-url('JetbrainsMono-Regular.eot?#iefix-syv14m') format('embedded-opentype'),
+    font-url('JetbrainsMono-Regular.woff2?-syv14m') format('woff2'),
+    font-url('JetbrainsMono-Regular.woff?-syv14m') format('woff'),
+    font-url('JetbrainsMono-Regular.ttf?-syv14m') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
 %icon {
   font-family: 'slate';
   speak: none;
@@ -19,6 +51,7 @@
   text-transform: none;
   line-height: 1;
 }
+
 
 %icon-exclamation-sign {
   @extend %icon;
