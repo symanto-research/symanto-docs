@@ -306,11 +306,6 @@ components:
           title: Probability
           type: number
           description: the probability of the predicted label.
-    PostBuaResponse:
-      title: PostBuaResponse
-      type: array
-      items:
-        $ref: '#/components/schemas/PostPredictedBua'
     PredictionResults:
       title: Prediction Results
       type: array
