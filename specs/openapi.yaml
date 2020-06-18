@@ -8,15 +8,15 @@ paths:
   /communication:
     post:
       tags:
-        - bua
+        - Text Analysis
       summary: Communication & Tonality
       description: |-
         Understand the basic user aspects of the author.
 
-        Supported Languages: en
+        Supported Languages: ar, cn, de, en, es, fr, it, nl, pt, ru, tr
 
         This is an aggregation call for all the other bua calls.
-      operationId: predict_dl_v1_bua_post
+      operationId: communication
       parameters:
         - name: all
           in: query
@@ -44,7 +44,7 @@ paths:
   /emotion:
     post:
       tags:
-        - emotion
+        - Text Analysis
       summary: Emotion Analysis
       description: |-
         Performs emotion analysis on the text.
@@ -57,7 +57,7 @@ paths:
         * love
         * sadness
         * unrecognized
-      operationId: predict_dl_v1_emotion_post
+      operationId: emotion
       parameters:
         - name: all
           in: query
@@ -85,20 +85,20 @@ paths:
   /personality:
     post:
       tags:
-        - bua
+        - Text Analysis
       summary: Personality Traits
       description: |-
         Personality traits evaluates content and writing style to determine how the author makes decisions. 
 
         Our model identifies whether an author is Emotional (relationship-oriented, focusing on social values and empathy) or Rational (objective and pragmatic, focusing on facts and logical deduction). 
 
-        Supported Languages: en, de
+        Supported Languages: ar, cn, de, en, es, fr, it, nl, pt, ru, tr
 
         Returned labels:
 
         * yes
         * no
-      operationId: predict_dl_v1_bua-personality_post
+      operationId: personality
       parameters:
         - name: all
           in: query
@@ -126,7 +126,7 @@ paths:
   /sentiment:
     post:
       tags:
-        - sentiment
+        - Text Analysis
       summary: Sentiment Analysis
       description: |-
         Understand whether your text has a positive or negative sentiment.
@@ -137,7 +137,7 @@ paths:
         * positive
         * negative
         * unrecognized
-      operationId: predict_dl_v1_sentiment_post
+      operationId: sentiment
       parameters:
         - name: all
           in: query
@@ -165,9 +165,9 @@ paths:
   /topic-sentiment:
     post:
       tags:
-        - sentiment
+        - Text Analysis
       summary: Extracts topics and sentiments and relates them.
-      operationId: topicsentiment
+      operationId: topic-sentiment
       parameters:
         - name: domain
           in: query
@@ -200,14 +200,14 @@ paths:
   /language-detection:
     post:
       tags:
-        - language
+        - Text Analysis
       summary: Language Detection
       description: |-
         Identifies what language a text is written in. Only languages that our API supports can be analyzed.
 
         Returned labels:
         * language_code of the detected language
-      operationId: predict_dl_v1_language-detection_post
+      operationId: language-detection
       requestBody:
         content:
           application/json:
