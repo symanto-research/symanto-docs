@@ -222,17 +222,16 @@ curl -X POST "https://api.symanto.net/sentiment"
 
 ```json
 [
-    {
-        "id": "1",
-        "predictions": [
-            {
-                "prediction": "positive",
-                "probability": 0.9802348613739014
-            }
-        ]
-    }
+  {
+    "id": "string",
+    "predictions": [
+      {
+        "prediction": "emotional",
+        "probability": 0.9996455907821655
+      }
+    ]
+  }
 ]
-
 ```
 Understand whether your text has a positive or negative sentiment.
 Supported Languages: en, de, es
