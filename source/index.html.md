@@ -90,7 +90,7 @@ This endpoint retrieves all psychological aspects of the author. Supported Langu
 
 ### HTTP Request
 
-`POST http://example.com/api/kittens`
+`POST https://api.symanto.net/communication`
 
 ### Query Parameters
 
@@ -100,11 +100,11 @@ all | false |
 
 ### REQUEST BODY SCHEMA : application/json
 
-Parameter | Default | Description
+Parameter | Optionality | Description
 --------- | ------- | -----------
-id | - | id of the post
-text | - | the text to analyse
-language | - | language_code of the text
+id | Optional | id of the post
+text | Required | the text to analyse
+language | Required | language_code of the text
 
 <aside class="success">
 Remember — to successfully run this you need to authenticate using a valid api-key.
@@ -156,11 +156,12 @@ all | false |
 
 ### REQUEST BODY SCHEMA : application/json
 
-Parameter | Default | Description
+Parameter | Optionality | Description
 --------- | ------- | -----------
-id | - | id of the post
-text | - | the text to analyse
-language | - | language_code of the text
+id | Optional | id of the post
+text | Required | the text to analyse
+language | Required | language_code of the text
+
 
 
 ## Personality Traits
@@ -211,12 +212,11 @@ all | false |
 
 ### REQUEST BODY SCHEMA : application/json
 
-Parameter | Default | Description
+Parameter | Optionality | Description
 --------- | ------- | -----------
-id | - | id of the post
-text | - | the text to analyse
-language | - | language_code of the text
-
+id | Optional | id of the post
+text | Required | the text to analyse
+language | Required | language_code of the text
 
 ## Sentiment Analysis
 
@@ -262,12 +262,11 @@ all | false |
 
 ### REQUEST BODY SCHEMA : application/json
 
-Parameter | Default | Description
+Parameter | Optionality | Description
 --------- | ------- | -----------
-id | - | id of the post
-text | - | the text to analyse
-language | - | language_code of the text
-
+id | Optional | id of the post
+text | Required | the text to analyse
+language | Required | language_code of the text
 
 ## Extract topics and sentiments and relate them
 
@@ -342,12 +341,11 @@ domain | - | Enum: "Ecom" "Employee". Provide analysis domain for better extract
 
 ### REQUEST BODY SCHEMA : application/json
 
-Parameter | Default | Description
+Parameter | Optionality | Description
 --------- | ------- | -----------
-id | - | id of the post
-text | - | the text to analyse
-language | - | language_code of the text
-
+id | Optional | id of the post
+text | Required | the text to analyse
+language | Required | language_code of the text
 
 ## Language Detection
 
@@ -380,10 +378,7 @@ language_code of the detected language
 
 ### REQUEST BODY SCHEMA : application/json
 
-Parameter | Default | Description
+Parameter | Optionality | Description
 --------- | ------- | -----------
-id | - | id of the post
-text | - | the text to analyse
-
-
-
+id | Optional | id of the post
+text | Required | the text to analyse
