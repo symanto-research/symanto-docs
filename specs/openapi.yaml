@@ -291,50 +291,6 @@ components:
           items:
             $ref: '#/components/schemas/Prediction'
           description: the list of predictions.
-    PostPredictedBua:
-      title: PostPredictedBua
-      required:
-        - personalities
-        - self
-        - info
-        - action
-        - fact
-      type: object
-      properties:
-        id:
-          title: Id
-          type: string
-          description: id of the text.
-        personalities:
-          title: Personalities
-          type: array
-          items:
-            $ref: '#/components/schemas/Prediction'
-          description: predictions for the personality bua.
-        self:
-          title: Self
-          type: array
-          items:
-            $ref: '#/components/schemas/Prediction'
-          description: predictions for the self-revealing bua.
-        info:
-          title: Info
-          type: array
-          items:
-            $ref: '#/components/schemas/Prediction'
-          description: predictions for the information-seeking bua.
-        action:
-          title: Action
-          type: array
-          items:
-            $ref: '#/components/schemas/Prediction'
-          description: predictions for the action-seeking bua.
-        fact:
-          title: Fact
-          type: array
-          items:
-            $ref: '#/components/schemas/Prediction'
-          description: predictions for the fact-oriented bua.
     Prediction:
       title: Prediction
       required:
