@@ -126,15 +126,15 @@ curl -X POST "https://api.symanto.net/emotion"
 
 ```json
 [
-  {
-    "id": "string",
-    "predictions": [
-      {
-        "prediction": "string",
-        "probability": 0
-      }
-    ]
-  }
+    {
+        "id": "1",
+        "predictions": [
+            {
+                "prediction": "joy",
+                "probability": 0.619248952716589
+            }
+        ]
+    }
 ]
 ```
 
@@ -181,17 +181,16 @@ curl -X POST "https://api.symanto.net/personality"
 
 ```json
 [
-  {
-    "id": "string",
-    "predictions": [
-      {
-        "prediction": "string",
-        "probability": 0
-      }
-    ]
-  }
+    {
+        "id": "1",
+        "predictions": [
+            {
+                "prediction": "emotional",
+                "probability": 0.9997281432151794
+            }
+        ]
+    }
 ]
-
 ```
 
 Personality traits evaluates content and writing style to determine how the author makes decisions.
