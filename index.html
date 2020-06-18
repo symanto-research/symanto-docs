@@ -240,7 +240,7 @@
                     <a href="#sentiment-analysis" class="toc-h2 toc-link" data-title="Sentiment Analysis">Sentiment Analysis</a>
                   </li>
                   <li>
-                    <a href="#extract-topics-and-sentiments-and-relate-them" class="toc-h2 toc-link" data-title="Extract topics and sentiments and relate them">Extract topics and sentiments and relate them</a>
+                    <a href="#topic-sentiment-extraction" class="toc-h2 toc-link" data-title="Topic sentiment extraction">Topic sentiment extraction</a>
                   </li>
                   <li>
                     <a href="#language-detection" class="toc-h2 toc-link" data-title="Language Detection">Language Detection</a>
@@ -501,17 +501,16 @@ Our model identifies whether an author is Emotional (relationship-oriented, focu
 <p>The above command returns JSON structured like this:</p>
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
-    </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"predictions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="p">{</span><span class="w">
-                </span><span class="nl">"prediction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"positive"</span><span class="p">,</span><span class="w">
-                </span><span class="nl">"probability"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9802348613739014</span><span class="w">
-            </span><span class="p">}</span><span class="w">
-        </span><span class="p">]</span><span class="w">
-    </span><span class="p">}</span><span class="w">
+  </span><span class="p">{</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"predictions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+      </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"prediction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emotional"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"probability"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9996455907821655</span><span class="w">
+      </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+  </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
-
 </span></code></pre></div>
 <p>Understand whether your text has a positive or negative sentiment.
 Supported Languages: en, de, es
@@ -559,7 +558,7 @@ Returned labels:
 <td>language_code of the text</td>
 </tr>
 </tbody></table>
-<h2 id='extract-topics-and-sentiments-and-relate-them'>Extract topics and sentiments and relate them</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://api.symanto.net/topic-sentiment"</span> 
+<h2 id='topic-sentiment-extraction'>Topic sentiment extraction</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://api.symanto.net/topic-sentiment"</span> 
 <span class="nt">-H</span> <span class="s2">"accept: application/json"</span> 
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
 <span class="nt">-H</span> <span class="s2">"x-api-key: opensesame"</span> 
