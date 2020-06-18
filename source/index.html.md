@@ -6,7 +6,6 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 toc_footers:
   - <a href='https://developers.symanto.net/signup'>Sign Up for a Developer Key</a>
-  # - <a href='https://developer.symanto.net/'>DeepLearning API Test</a>
 
 includes:
   - errors
@@ -21,9 +20,6 @@ Welcome to the Symanto API! You can use our API to access the API endpoints, whi
 We have language binding in Shell. You can view code examples in the dark area to the right.
 
 # Authentication
-
-> To authorize, you need an api key. to create one visit this link:
-
 
 > Make sure to replace `opensesame` with your API key.
 
@@ -165,5 +161,229 @@ Parameter | Default | Description
 id | - | id of the post
 text | - | the text to analyse
 language | - | language_code of the text
+
+
+## Personality Traits
+
+```shell
+curl -X POST "https://api.symanto.net/personality" 
+-H "accept: application/json" 
+-H "Content-Type: application/json" 
+-d "[{\"id\":1,\"text\":\"I love the service\",\"language\":\"en\"}]"
+```
+
+
+> The above command returns JSON structured like this:
+
+```json
+[
+  {
+    "id": "string",
+    "predictions": [
+      {
+        "prediction": "string",
+        "probability": 0
+      }
+    ]
+  }
+]
+
+```
+
+Personality traits evaluates content and writing style to determine how the author makes decisions.
+Our model identifies whether an author is Emotional (relationship-oriented, focusing on social values and empathy) or Rational (objective and pragmatic, focusing on facts and logical deduction).
+
+Supported Languages: ar, cn, de, en, es, fr, it, nl, pt, ru, tr
+
+Returned labels:
+. yes
+. no
+
+### HTTP Request
+
+`POST https://api.symanto.net/personality`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+all | false | 
+
+### REQUEST BODY SCHEMA : application/json
+
+Parameter | Default | Description
+--------- | ------- | -----------
+id | - | id of the post
+text | - | the text to analyse
+language | - | language_code of the text
+
+
+## Sentiment Analysis
+
+```shell
+curl -X POST "https://api.symanto.net/sentiment" 
+-H "accept: application/json" 
+-H "Content-Type: application/json" 
+-d "[{\"id\":1,\"text\":\"I love the service\",\"language\":\"en\"}]"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "id": "1",
+        "predictions": [
+            {
+                "prediction": "positive",
+                "probability": 0.9802348613739014
+            }
+        ]
+    }
+]
+
+```
+Understand whether your text has a positive or negative sentiment.
+Supported Languages: en, de, es
+Returned labels:
+. positive
+. negative
+. unrecognized
+
+### HTTP Request
+
+`POST https://api.symanto.net/sentiment`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+all | false | 
+
+### REQUEST BODY SCHEMA : application/json
+
+Parameter | Default | Description
+--------- | ------- | -----------
+id | - | id of the post
+text | - | the text to analyse
+language | - | language_code of the text
+
+
+## Extract topics and sentiments and relate them
+
+```shell
+curl -X POST "https://api.symanto.net/topic-sentiment" 
+-H "accept: application/json" 
+-H "Content-Type: application/json" 
+-d "[{\"id\":1,\"text\":\"I love the service\",\"language\":\"en\"}]"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "id": "1",
+        "text": "Hello I love the service",
+        "language": "en",
+        "topicSentiments": [
+            {
+                "topic": {
+                    "start": 3,
+                    "end": 5,
+                    "topic": "Service",
+                    "text": "the service",
+                    "category": "Service General"
+                },
+                "sentiment": {
+                    "start": 2,
+                    "end": 3,
+                    "text": "love",
+                    "positive": true,
+                    "scale": 1.0
+                },
+                "sentence": "love the service"
+            }
+        ],
+        "sentiments": [
+            {
+                "start": 2,
+                "end": 3,
+                "text": "love",
+                "positive": true,
+                "scale": 1.0,
+                "category": "",
+                "parentCategory": ""
+            }
+        ],
+        "topics": [
+            {
+                "start": 3,
+                "end": 5,
+                "topic": "Service",
+                "text": "the service",
+                "category": "Service General"
+            }
+        ]
+    }
+]
+```
+This endpoint extracts topics and sentiments from the text and tries to see if there is a meaningful relation between them. 
+
+### HTTP Request
+
+`POST https://api.symanto.net/topic-sentiment`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+domain | - | Enum: "Ecom" "Employee". Provide analysis domain for better extraction (optional)
+
+### REQUEST BODY SCHEMA : application/json
+
+Parameter | Default | Description
+--------- | ------- | -----------
+id | - | id of the post
+text | - | the text to analyse
+language | - | language_code of the text
+
+
+## Language Detection
+
+
+```shell
+curl -X POST "https://api.symanto.net/language-detection" 
+-H "accept: application/json" 
+-H "Content-Type: application/json" 
+-d "[{\"id\":1,\"text\":\"I love the service\"}]"
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "id": "1",
+        "detected_language": "en"
+    }
+]
+```
+Identifies what language a text is written in. Only languages that our API supports can be analyzed.
+Returned labels:
+language_code of the detected language
+
+
+### HTTP Request
+
+`POST https://api.symanto.net/language-detection`
+
+### REQUEST BODY SCHEMA : application/json
+
+Parameter | Default | Description
+--------- | ------- | -----------
+id | - | id of the post
+text | - | the text to analyse
+
 
 
