@@ -53,34 +53,22 @@ curl -X POST "https://api.symanto.net/communication"
 [
   {
     "id": "string",
-    "personalities": [
+    "predictions": [
       {
-        "prediction": "string",
-        "probability": 0
-      }
-    ],
-    "self": [
+        "prediction": "action-seeking",
+        "probability": 0.0008584096212871373
+      },
       {
-        "prediction": "string",
-        "probability": 0
-      }
-    ],
-    "info": [
+        "prediction": "fact-oriented",
+        "probability": 0.00006800901610404253
+      },
       {
-        "prediction": "string",
-        "probability": 0
-      }
-    ],
-    "action": [
+        "prediction": "information-seeking",
+        "probability": 0.00007450413249898702
+      },
       {
-        "prediction": "string",
-        "probability": 0
-      }
-    ],
-    "fact": [
-      {
-        "prediction": "string",
-        "probability": 0
+        "prediction": "self-revealing",
+        "probability": 0.9997937083244324
       }
     ]
   }
