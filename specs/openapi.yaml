@@ -34,7 +34,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/PostBuaResponse'
+                $ref: '#/components/schemas/PredictionResults'
         '422':
           description: Validation Error
           content:
