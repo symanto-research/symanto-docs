@@ -101,7 +101,11 @@ Response response = client.newCall(request).execute();
 ]
 ```
 
-This endpoint retrieves all psychological aspects of the author. Supported Languages: [ `ar`, `de`, `en`, `es`, `fr`, `it`, `nl`, `pt`, `ru`, `tr`, `zh` ]
+This endpoint retrieves all psychological aspects of the author. 
+
+Supported Languages: [ `ar`, `de`, `en`, `es`, `fr`, `it`, `nl`, `pt`, `ru`, `tr`, `zh` ]
+
+Returned labels: [`action-seeking`, `fact-oriented`, `information-seeking`, `self-revealing`]
 
 ### HTTP Request
 
@@ -111,15 +115,15 @@ This endpoint retrieves all psychological aspects of the author. Supported Langu
 
 Parameter | Default | Description
 --------- | ------- | -----------
-all | false | returns all predictions, not only the most probable one
+all       | false   | returns all predictions, not only the most probable one
 
 ### REQUEST BODY SCHEMA : application/json
 
 Parameter | Optionality | Description
---------- | ------- | -----------
-id | Optional | id of the post
-text | Required | the text to analyse
-language | Required | language_code of the text
+--------- | ----------- | -----------
+id        | Optional    | id of the post
+text      | Required    | the text to analyse
+language  | Required    | language_code of the text
 
 <aside class="success">
 Remember — to successfully run this you need to authenticate using a valid api-key.
@@ -176,13 +180,12 @@ Response response = client.newCall(request).execute();
 ]
 ```
 
-This endpoint retrieves emotions from the written text. Supported language codes are: [ `de`, `en`, `es` ]
-Retrieved emotions can be any of:
-. anger
-. joy
-. love
-. sadness
-. unrecognized
+This endpoint retrieves emotions from the written text. 
+
+Supported language codes are: [ `de`, `en`, `es` ]
+
+Retrieved emotions can be any of: [`anger`, `joy`, `love`, `sadness`]
+
 
 ### HTTP Request
 
@@ -192,15 +195,15 @@ Retrieved emotions can be any of:
 
 Parameter | Default | Description
 --------- | ------- | -----------
-all | false | returns all predictions, not only the most probable one
+all       | false   | returns all predictions, not only the most probable one
 
 ### REQUEST BODY SCHEMA : application/json
 
 Parameter | Optionality | Description
---------- | ------- | -----------
-id | Optional | id of the post
-text | Required | the text to analyse
-language | Required | language_code of the text
+--------- | ----------- | -----------
+id        | Optional    | id of the post
+text      | Required    | the text to analyse
+language  | Required    | language_code of the text
 
 
 
@@ -260,9 +263,7 @@ Our model identifies whether an author is Emotional (relationship-oriented, focu
 
 Supported Languages: [ `ar`, `de`, `en`, `es`, `fr`, `it`, `nl`, `pt`, `ru`, `tr`, `zh` ]
 
-Returned labels:
-. yes
-. no
+Returned labels: [`emotional`, `rational`]
 
 ### HTTP Request
 
@@ -272,15 +273,15 @@ Returned labels:
 
 Parameter | Default | Description
 --------- | ------- | -----------
-all | false | returns all predictions, not only the most probable one
+all       | false   | returns all predictions, not only the most probable one
 
 ### REQUEST BODY SCHEMA : application/json
 
 Parameter | Optionality | Description
---------- | ------- | -----------
-id | Optional | id of the post
-text | Required | the text to analyse
-language | Required | language_code of the text
+--------- | ----------- | -----------
+id        | Optional    | id of the post
+text      | Required    | the text to analyse
+language  | Required    | language_code of the text
 
 ## Sentiment Analysis
 
@@ -322,22 +323,22 @@ Response response = client.newCall(request).execute();
 ```json
 [
   {
-    "id": "string",
+    "id": "1",
     "predictions": [
       {
-        "prediction": "emotional",
-        "probability": 0.9996455907821655
+        "prediction": "negative",
+        "probability": 0.5236542224884033
       }
     ]
   }
 ]
 ```
 Understand whether your text has a positive or negative sentiment.
-Supported Languages: en, de, es
-Returned labels:
-. positive
-. negative
-. unrecognized
+
+Supported Languages: [`en`, `de`, `es`]
+
+Returned labels: [`positive`,`negative`,`unrecognized`]
+
 
 ### HTTP Request
 
@@ -347,15 +348,15 @@ Returned labels:
 
 Parameter | Default | Description
 --------- | ------- | -----------
-all | false | returns all predictions, not only the most probable one
+all       | false   | returns all predictions, not only the most probable one
 
 ### REQUEST BODY SCHEMA : application/json
 
 Parameter | Optionality | Description
---------- | ------- | -----------
-id | Optional | id of the post
-text | Required | the text to analyse
-language | Required | language_code of the text
+--------- | ----------- | -----------
+id        | Optional    | id of the post
+text      | Required    | the text to analyse
+language  | Required    | language_code of the text
 
 ## Topic sentiment extraction
 
@@ -452,15 +453,15 @@ This endpoint extracts topics and sentiments from the text and tries to see if t
 
 Parameter | Default | Description
 --------- | ------- | -----------
-domain | - | Enum: "Ecom" "Employee". Provide analysis domain for better extraction (optional)
+domain    | -       | Enum: "Ecom" "Employee". Provide analysis domain for better extraction (optional)
 
 ### REQUEST BODY SCHEMA : application/json
 
 Parameter | Optionality | Description
---------- | ------- | -----------
-id | Optional | id of the post
-text | Required | the text to analyse
-language | Required | language_code of the text
+--------- | ----------- | -----------
+id        | Optional    | id of the post
+text      | Required    | the text to analyse
+language  | Required    | language_code of the text
 
 ## Language Detection
 
@@ -520,6 +521,6 @@ language_code of the detected language
 ### REQUEST BODY SCHEMA : application/json
 
 Parameter | Optionality | Description
---------- | ------- | -----------
-id | Optional | id of the post
-text | Required | the text to analyse
+--------- | ----------- | -----------
+id        | Optional    | id of the post
+text      | Required    | the text to analyse
