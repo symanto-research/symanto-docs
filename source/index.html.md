@@ -3,8 +3,8 @@ title: API Reference
 
 language_tabs: # must be one of https://git.io/vQNgJ
   - shell
-  - java
   - python
+  - java
 
 toc_footers:
   - <a href='https://developers.symanto.net/signup'>Sign Up for a Developer Key</a>
@@ -48,29 +48,29 @@ curl -X POST "https://api.symanto.net/communication"
 -d "[{\"id\":1,\"text\":\"I love the service\",\"language\":\"en\"}]"
 ```
 
+```python
+import requests
+
+url = "https://api.symanto.net/communication"
+
+payload = "[{ \"id\": \"1\", \"text\": \"I love the service\", \"language\": \"en\" }]"
+headers = {
+    "x-api-key": "opensesame",
+    "Content-Type": "application/json"
+}
+response = requests.request("POST", url, headers=headers, data=payload)
+```
+
 ```java
 OkHttpClient client = new OkHttpClient().newBuilder().build();
 MediaType mediaType = MediaType.parse("application/json");
-RequestBody body = RequestBody.create("[ { \"id\": \"1\", \"text\": \"Hello I love the service\", \"language\": \"en\" }]", mediaType);
+RequestBody body = RequestBody.create("[ { \"id\": \"1\", \"text\": \"I love the service\", \"language\": \"en\" }]", mediaType);
 Request request = new Request.Builder()
     .url("https://api.symanto.net/communication")
     .method("POST", body)
     .addHeader("x-api-key","opensesame")
     .build();
 Response response = client.newCall(request).execute();
-```
-
-```python
-import requests
-
-url = "https://api.symanto.net/communication"
-
-payload = "[{ \"id\": \"1\", \"text\": \"Hello I love the service\", \"language\": \"en\" }]"
-headers = {
-    "x-api-key": "opensesame",
-    "Content-Type": "application/json"
-}
-response = requests.request("POST", url, headers=headers, data=payload)
 ```
 
 > The above command returns JSON structured like this:
@@ -135,24 +135,12 @@ curl -X POST "https://api.symanto.net/emotion"
 -d "[{\"id\":1,\"text\":\"I love the service\",\"language\":\"en\"}]"
 ```
 
-```java
-OkHttpClient client = new OkHttpClient().newBuilder().build();
-MediaType mediaType = MediaType.parse("application/json");
-RequestBody body = RequestBody.create("[ { \"id\": \"1\", \"text\": \"Hello I love the service\", \"language\": \"en\" }]", mediaType);
-Request request = new Request.Builder()
-    .url("https://api.symanto.net/emotion")
-    .method("POST", body)
-    .addHeader("x-api-key","opensesame")
-    .build();
-Response response = client.newCall(request).execute();
-```
-
 ```python
 import requests
 
 url = "https://api.symanto.net/emotion"
 
-payload = "[{ \"id\": \"1\", \"text\": \"Hello I love the service\", \"language\": \"en\" }]"
+payload = "[{ \"id\": \"1\", \"text\": \"I love the service\", \"language\": \"en\" }]"
 headers = {
     "x-api-key": "opensesame",
     "Content-Type": "application/json"
@@ -160,6 +148,17 @@ headers = {
 response = requests.request("POST", url, headers=headers, data=payload)
 ```
 
+```java
+OkHttpClient client = new OkHttpClient().newBuilder().build();
+MediaType mediaType = MediaType.parse("application/json");
+RequestBody body = RequestBody.create("[ { \"id\": \"1\", \"text\": \"I love the service\", \"language\": \"en\" }]", mediaType);
+Request request = new Request.Builder()
+    .url("https://api.symanto.net/emotion")
+    .method("POST", body)
+    .addHeader("x-api-key","opensesame")
+    .build();
+Response response = client.newCall(request).execute();
+```
 
 > The above command returns JSON structured like this:
 
@@ -215,29 +214,29 @@ curl -X POST "https://api.symanto.net/personality"
 -d "[{\"id\":1,\"text\":\"I love the service\",\"language\":\"en\"}]"
 ```
 
+```python
+import requests
+
+url = "https://api.symanto.net/personality"
+
+payload = "[{ \"id\": \"1\", \"text\": \"I love the service\", \"language\": \"en\" }]"
+headers = {
+    "x-api-key": "opensesame",
+    "Content-Type": "application/json"
+}
+response = requests.request("POST", url, headers=headers, data=payload)
+```
+
 ```java
 OkHttpClient client = new OkHttpClient().newBuilder().build();
 MediaType mediaType = MediaType.parse("application/json");
-RequestBody body = RequestBody.create("[ { \"id\": \"1\", \"text\": \"Hello I love the service\", \"language\": \"en\" }]", mediaType);
+RequestBody body = RequestBody.create("[ { \"id\": \"1\", \"text\": \"I love the service\", \"language\": \"en\" }]", mediaType);
 Request request = new Request.Builder()
     .url("https://api.symanto.net/personality")
     .method("POST", body)
     .addHeader("x-api-key",Constants.API_KEY)
     .build();
 Response response = client.newCall(request).execute();
-```
-
-```python
-import requests
-
-url = "https://api.symanto.net/personality"
-
-payload = "[{ \"id\": \"1\", \"text\": \"Hello I love the service\", \"language\": \"en\" }]"
-headers = {
-    "x-api-key": "opensesame",
-    "Content-Type": "application/json"
-}
-response = requests.request("POST", url, headers=headers, data=payload)
 ```
 
 > The above command returns JSON structured like this:
@@ -293,24 +292,12 @@ curl -X POST "https://api.symanto.net/sentiment"
 -d "[{\"id\":1,\"text\":\"I love the service\",\"language\":\"en\"}]"
 ```
 
-```java
-OkHttpClient client = new OkHttpClient().newBuilder().build();
-MediaType mediaType = MediaType.parse("application/json");
-RequestBody body = RequestBody.create("[{\"id\": \"1\", \"text\": \"Hello I love the service\", \"language\": \"en\" }]", mediaType);
-Request request = new Request.Builder()
-    .url("https://api.symanto.net/sentiment")
-    .method("POST", body)
-    .addHeader("x-api-key","opensesame")
-    .build();
-Response response = client.newCall(request).execute();
-```
-
 ```python
 import requests
 
 url = "https://api.symanto.net/sentiment"
 
-payload = "[{ \"id\": \"1\", \"text\": \"Hello I love the service\", \"language\": \"en\" }]"
+payload = "[{ \"id\": \"1\", \"text\": \"I love the service\", \"language\": \"en\" }]"
 headers = {
     "x-api-key": "opensesame",
     "Content-Type": "application/json"
@@ -318,6 +305,17 @@ headers = {
 response = requests.request("POST", url, headers=headers, data=payload)
 ```
 
+```java
+OkHttpClient client = new OkHttpClient().newBuilder().build();
+MediaType mediaType = MediaType.parse("application/json");
+RequestBody body = RequestBody.create("[{\"id\": \"1\", \"text\": \"I love the service\", \"language\": \"en\" }]", mediaType);
+Request request = new Request.Builder()
+    .url("https://api.symanto.net/sentiment")
+    .method("POST", body)
+    .addHeader("x-api-key","opensesame")
+    .build();
+Response response = client.newCall(request).execute();
+```
 
 > The above command returns JSON structured like this:
 
@@ -366,19 +364,7 @@ curl -X POST "https://api.symanto.net/topic-sentiment"
 -H "accept: application/json" 
 -H "Content-Type: application/json" 
 -H "x-api-key: opensesame" 
--d "[{\"id\":1,\"text\":\"I love the service\",\"language\":\"en\"}]"
-```
-
-```java
-OkHttpClient client = new OkHttpClient().newBuilder().build();
-MediaType mediaType = MediaType.parse("application/json");
-RequestBody body = RequestBody.create("[{ \"id\": \"1\", \"text\": \"Hello I love the service\",\"language\": \"en\"}]", mediaType);
-Request request = new Request.Builder()
-    .url("https://api.symanto.net/topic-sentiment")
-    .method("POST", "opensesame")
-    .addHeader("x-api-key",Constants.API_KEY)
-    .build();
-Response response = client.newCall(request).execute();
+-d "[{\"id\":1,\"text\":\"Hello I love the service\",\"language\":\"en\"}]"
 ```
 
 ```python
@@ -392,6 +378,18 @@ headers = {
     "Content-Type": "application/json"
 }
 response = requests.request("POST", url, headers=headers, data=payload)
+```
+
+```java
+OkHttpClient client = new OkHttpClient().newBuilder().build();
+MediaType mediaType = MediaType.parse("application/json");
+RequestBody body = RequestBody.create("[{ \"id\": \"1\", \"text\": \"Hello I love the service\",\"language\": \"en\"}]", mediaType);
+Request request = new Request.Builder()
+    .url("https://api.symanto.net/topic-sentiment")
+    .method("POST", "opensesame")
+    .addHeader("x-api-key",Constants.API_KEY)
+    .build();
+Response response = client.newCall(request).execute();
 ```
 
 > The above command returns JSON structured like this:
@@ -472,19 +470,7 @@ curl -X POST "https://api.symanto.net/language-detection"
 -H "accept: application/json" 
 -H "Content-Type: application/json" 
 -H "x-api-key: opensesame" 
--d "[{\"id\":1,\"text\":\"I love the service\"}]"
-```
-
-```java
-OkHttpClient client = new OkHttpClient().newBuilder().build();
-MediaType mediaType = MediaType.parse("application/json");
-RequestBody body = RequestBody.create("[ { \"id\": \"1\", \"text\": \"Hello I love the service\" }]", mediaType);
-Request request = new Request.Builder()
-    .url("https://api.symanto.net/language-detection")
-    .method("POST", body)
-    .addHeader("x-api-key","opensesame")
-    .build();
-Response response = client.newCall(request).execute();
+-d "[{\"id\":1,\"text\":\"Hello I love the service\"}]"
 ```
 
 ```python
@@ -498,8 +484,18 @@ headers = {
     "Content-Type": "application/json"
 }
 response = requests.request("POST", url, headers=headers, data=payload)
+```
 
-print(response.text.encode('utf8'))
+```java
+OkHttpClient client = new OkHttpClient().newBuilder().build();
+MediaType mediaType = MediaType.parse("application/json");
+RequestBody body = RequestBody.create("[ { \"id\": \"1\", \"text\": \"Hello I love the service\" }]", mediaType);
+Request request = new Request.Builder()
+    .url("https://api.symanto.net/language-detection")
+    .method("POST", body)
+    .addHeader("x-api-key","opensesame")
+    .build();
+Response response = client.newCall(request).execute();
 ```
 
 > The above command returns JSON structured like this:
