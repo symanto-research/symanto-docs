@@ -60,6 +60,8 @@ paths:
         * joy
         * love
         * sadness
+        * surprise
+        * uncategorized
       operationId: emotion
       parameters:
         - name: all
