@@ -330,7 +330,11 @@ You must replace <code>opensesame</code> with your personal API key.
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves all psychological aspects of the author. Supported Languages: [ <code>ar</code>, <code>de</code>, <code>en</code>, <code>es</code>, <code>fr</code>, <code>it</code>, <code>nl</code>, <code>pt</code>, <code>ru</code>, <code>tr</code>, <code>zh</code> ]</p>
+<p>This endpoint retrieves all psychological aspects of the author. </p>
+
+<p>Supported Languages: [ <code>ar</code>, <code>de</code>, <code>en</code>, <code>es</code>, <code>fr</code>, <code>it</code>, <code>nl</code>, <code>pt</code>, <code>ru</code>, <code>tr</code>, <code>zh</code> ]</p>
+
+<p>Returned labels: [<code>action-seeking</code>, <code>fact-oriented</code>, <code>information-seeking</code>, <code>self-revealing</code>]</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://api.symanto.net/communication</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
@@ -415,13 +419,11 @@ Remember — to successfully run this you need to authenticate using a valid api
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves emotions from the written text. Supported language codes are: [ <code>de</code>, <code>en</code>, <code>es</code> ]
-Retrieved emotions can be any of:
-. anger
-. joy
-. love
-. sadness
-. unrecognized</p>
+<p>This endpoint retrieves emotions from the written text. </p>
+
+<p>Supported language codes are: [ <code>de</code>, <code>en</code>, <code>es</code> ]</p>
+
+<p>Retrieved emotions can be any of: [<code>anger</code>, <code>joy</code>, <code>love</code>, <code>sadness</code>]</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST https://api.symanto.net/emotion</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
@@ -507,9 +509,7 @@ Our model identifies whether an author is Emotional (relationship-oriented, focu
 
 <p>Supported Languages: [ <code>ar</code>, <code>de</code>, <code>en</code>, <code>es</code>, <code>fr</code>, <code>it</code>, <code>nl</code>, <code>pt</code>, <code>ru</code>, <code>tr</code>, <code>zh</code> ]</p>
 
-<p>Returned labels:
-. yes
-. no</p>
+<p>Returned labels: [<code>emotional</code>, <code>rational</code>]</p>
 <h3 id='http-request-3'>HTTP Request</h3>
 <p><code>POST https://api.symanto.net/personality</code></p>
 <h3 id='query-parameters-3'>Query Parameters</h3>
@@ -580,22 +580,21 @@ Our model identifies whether an author is Emotional (relationship-oriented, focu
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"predictions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"prediction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"emotional"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"probability"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9996455907821655</span><span class="w">
+        </span><span class="nl">"prediction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"negative"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"probability"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5236542224884033</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
-<p>Understand whether your text has a positive or negative sentiment.
-Supported Languages: en, de, es
-Returned labels:
-. positive
-. negative
-. unrecognized</p>
+<p>Understand whether your text has a positive or negative sentiment.</p>
+
+<p>Supported Languages: [<code>en</code>, <code>de</code>, <code>es</code>]</p>
+
+<p>Returned labels: [<code>positive</code>,<code>negative</code>,<code>unrecognized</code>]</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST https://api.symanto.net/sentiment</code></p>
 <h3 id='query-parameters-4'>Query Parameters</h3>
