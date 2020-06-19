@@ -78,7 +78,7 @@ Response response = client.newCall(request).execute();
 ```json
 [
   {
-    "id": "string",
+    "id": "1",
     "predictions": [
       {
         "prediction": "action-seeking",
@@ -326,8 +326,8 @@ Response response = client.newCall(request).execute();
     "id": "1",
     "predictions": [
       {
-        "prediction": "negative",
-        "probability": 0.5236542224884033
+        "prediction": "positive",
+        "probability": 0.8465812802314758
       }
     ]
   }
@@ -337,7 +337,7 @@ Understand whether your text has a positive or negative sentiment.
 
 Supported Languages: [`en`, `de`, `es`]
 
-Returned labels: [`positive`,`negative`,`unrecognized`]
+Returned labels: [`positive`, `negative`, `unrecognized`]
 
 
 ### HTTP Request
