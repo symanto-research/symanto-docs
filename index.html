@@ -201,7 +201,7 @@
       <script src="javascripts/all-c5541673.js"></script>
   </head>
 
-  <body class="index" data-languages="[&quot;shell&quot;]">
+  <body class="index" data-languages="[&quot;shell&quot;,&quot;java&quot;,&quot;python&quot;]">
     <a href="#" id="nav-button">
       <span>
         NAV
@@ -212,6 +212,8 @@
       <img src="images/logo-74b84636.svg" class="logo" alt="" />
         <div class="lang-selector">
               <a href="#" data-language-name="shell">shell</a>
+              <a href="#" data-language-name="java">java</a>
+              <a href="#" data-language-name="python">python</a>
         </div>
         <div class="search">
           <input type="text" class="search" id="input-search" placeholder="Search">
@@ -281,6 +283,25 @@ You must replace <code>opensesame</code> with your personal API key.
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
 <span class="nt">-H</span> <span class="s2">"x-api-key: opensesame"</span> 
 <span class="nt">-d</span> <span class="s2">"[{</span><span class="se">\"</span><span class="s2">id</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">text</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">I love the service</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">language</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">}]"</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">"[ { \"id\": \"1\", \"text\": \"Hello I love the service\", \"language\": \"en\" }]"</span><span class="o">,</span> <span class="n">mediaType</span><span class="o">);</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.symanto.net/communication"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"POST"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"x-api-key"</span><span class="o">,</span><span class="s">"opensesame"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.symanto.net/communication"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"[{ </span><span class="se">\"</span><span class="s">id</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">1</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">text</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Hello I love the service</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">language</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">en</span><span class="se">\"</span><span class="s"> }]"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"x-api-key"</span><span class="p">:</span> <span class="s">"opensesame"</span><span class="p">,</span>
+    <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -309,7 +330,7 @@ You must replace <code>opensesame</code> with your personal API key.
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves all psychological aspects of the author. Supported Languages: ar, de, en, es, fr, it, nl, pt, ru, tr, zh</p>
+<p>This endpoint retrieves all psychological aspects of the author. Supported Languages: [ <code>ar</code>, <code>de</code>, <code>en</code>, <code>es</code>, <code>fr</code>, <code>it</code>, <code>nl</code>, <code>pt</code>, <code>ru</code>, <code>tr</code>, <code>zh</code> ]</p>
 <h3 id='http-request'>HTTP Request</h3>
 <p><code>POST https://api.symanto.net/communication</code></p>
 <h3 id='query-parameters'>Query Parameters</h3>
@@ -359,6 +380,25 @@ Remember — to successfully run this you need to authenticate using a valid api
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
 <span class="nt">-H</span> <span class="s2">"x-api-key: opensesame"</span> 
 <span class="nt">-d</span> <span class="s2">"[{</span><span class="se">\"</span><span class="s2">id</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">text</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">I love the service</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">language</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">}]"</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">"[ { \"id\": \"1\", \"text\": \"Hello I love the service\", \"language\": \"en\" }]"</span><span class="o">,</span> <span class="n">mediaType</span><span class="o">);</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.symanto.net/emotion"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"POST"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"x-api-key"</span><span class="o">,</span><span class="s">"opensesame"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.symanto.net/emotion"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"[{ </span><span class="se">\"</span><span class="s">id</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">1</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">text</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Hello I love the service</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">language</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">en</span><span class="se">\"</span><span class="s"> }]"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"x-api-key"</span><span class="p">:</span> <span class="s">"opensesame"</span><span class="p">,</span>
+    <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -375,7 +415,7 @@ Remember — to successfully run this you need to authenticate using a valid api
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves emotions from the written text. Supported language codes are: en, de, es
+<p>This endpoint retrieves emotions from the written text. Supported language codes are: [ <code>de</code>, <code>en</code>, <code>es</code> ]
 Retrieved emotions can be any of:
 . anger
 . joy
@@ -427,6 +467,25 @@ Retrieved emotions can be any of:
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
 <span class="nt">-H</span> <span class="s2">"x-api-key: opensesame"</span> 
 <span class="nt">-d</span> <span class="s2">"[{</span><span class="se">\"</span><span class="s2">id</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">text</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">I love the service</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">language</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">}]"</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">"[ { \"id\": \"1\", \"text\": \"Hello I love the service\", \"language\": \"en\" }]"</span><span class="o">,</span> <span class="n">mediaType</span><span class="o">);</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.symanto.net/personality"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"POST"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"x-api-key"</span><span class="o">,</span><span class="nc">Constants</span><span class="o">.</span><span class="na">API_KEY</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.symanto.net/personality"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"[{ </span><span class="se">\"</span><span class="s">id</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">1</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">text</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Hello I love the service</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">language</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">en</span><span class="se">\"</span><span class="s"> }]"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"x-api-key"</span><span class="p">:</span> <span class="s">"opensesame"</span><span class="p">,</span>
+    <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -446,7 +505,7 @@ Retrieved emotions can be any of:
 <p>Personality traits evaluates content and writing style to determine how the author makes decisions.
 Our model identifies whether an author is Emotional (relationship-oriented, focusing on social values and empathy) or Rational (objective and pragmatic, focusing on facts and logical deduction).</p>
 
-<p>Supported Languages: ar, de, en, es, fr, it, nl, pt, ru, tr, zh</p>
+<p>Supported Languages: [ <code>ar</code>, <code>de</code>, <code>en</code>, <code>es</code>, <code>fr</code>, <code>it</code>, <code>nl</code>, <code>pt</code>, <code>ru</code>, <code>tr</code>, <code>zh</code> ]</p>
 
 <p>Returned labels:
 . yes
@@ -496,6 +555,25 @@ Our model identifies whether an author is Emotional (relationship-oriented, focu
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
 <span class="nt">-H</span> <span class="s2">"x-api-key: opensesame"</span> 
 <span class="nt">-d</span> <span class="s2">"[{</span><span class="se">\"</span><span class="s2">id</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">text</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">I love the service</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">language</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">}]"</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">"[{\"id\": \"1\", \"text\": \"Hello I love the service\", \"language\": \"en\" }]"</span><span class="o">,</span> <span class="n">mediaType</span><span class="o">);</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.symanto.net/sentiment"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"POST"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"x-api-key"</span><span class="o">,</span><span class="s">"opensesame"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.symanto.net/sentiment"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"[{ </span><span class="se">\"</span><span class="s">id</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">1</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">text</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Hello I love the service</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">language</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">en</span><span class="se">\"</span><span class="s"> }]"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"x-api-key"</span><span class="p">:</span> <span class="s">"opensesame"</span><span class="p">,</span>
+    <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -563,6 +641,25 @@ Returned labels:
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
 <span class="nt">-H</span> <span class="s2">"x-api-key: opensesame"</span> 
 <span class="nt">-d</span> <span class="s2">"[{</span><span class="se">\"</span><span class="s2">id</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">text</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">I love the service</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">language</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">}]"</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">"[{ \"id\": \"1\", \"text\": \"Hello I love the service\",\"language\": \"en\"}]"</span><span class="o">,</span> <span class="n">mediaType</span><span class="o">);</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.symanto.net/topic-sentiment"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"POST"</span><span class="o">,</span> <span class="s">"opensesame"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"x-api-key"</span><span class="o">,</span><span class="nc">Constants</span><span class="o">.</span><span class="na">API_KEY</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.symanto.net/topic-sentiment"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"[{ </span><span class="se">\"</span><span class="s">id</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">1</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">text</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Hello I love the service</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">language</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">en</span><span class="se">\"</span><span class="s"> }]"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"x-api-key"</span><span class="p">:</span> <span class="s">"opensesame"</span><span class="p">,</span>
+    <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -660,6 +757,27 @@ Returned labels:
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
 <span class="nt">-H</span> <span class="s2">"x-api-key: opensesame"</span> 
 <span class="nt">-d</span> <span class="s2">"[{</span><span class="se">\"</span><span class="s2">id</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">text</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">I love the service</span><span class="se">\"</span><span class="s2">}]"</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">"[ { \"id\": \"1\", \"text\": \"Hello I love the service\" }]"</span><span class="o">,</span> <span class="n">mediaType</span><span class="o">);</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.symanto.net/language-detection"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"POST"</span><span class="o">,</span> <span class="n">body</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"x-api-key"</span><span class="o">,</span><span class="s">"opensesame"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.symanto.net/language-detection"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"[{</span><span class="se">\"</span><span class="s">id</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">1</span><span class="se">\"</span><span class="s">,</span><span class="se">\"</span><span class="s">text</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Hello I love the service</span><span class="se">\"</span><span class="s">}]"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"x-api-key"</span><span class="p">:</span> <span class="s">"opensesame"</span><span class="p">,</span>
+    <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+
+<span class="k">print</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">'utf8'</span><span class="p">))</span>
 </code></pre></div>
 <blockquote>
 <p>The above command returns JSON structured like this:</p>
@@ -750,6 +868,8 @@ language_code of the detected language</p>
       <div class="dark-box">
           <div class="lang-selector">
                 <a href="#" data-language-name="shell">shell</a>
+                <a href="#" data-language-name="java">java</a>
+                <a href="#" data-language-name="python">python</a>
           </div>
       </div>
     </div>
