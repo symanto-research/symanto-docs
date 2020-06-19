@@ -308,7 +308,7 @@ You must replace <code>opensesame</code> with your personal API key.
 </blockquote>
 <div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
   </span><span class="p">{</span><span class="w">
-    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"string"</span><span class="p">,</span><span class="w">
+    </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"predictions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
         </span><span class="nl">"prediction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"action-seeking"</span><span class="p">,</span><span class="w">
@@ -583,8 +583,8 @@ Our model identifies whether an author is Emotional (relationship-oriented, focu
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"predictions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"prediction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"negative"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"probability"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.5236542224884033</span><span class="w">
+        </span><span class="nl">"prediction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"positive"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"probability"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.8465812802314758</span><span class="w">
       </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
   </span><span class="p">}</span><span class="w">
@@ -594,7 +594,7 @@ Our model identifies whether an author is Emotional (relationship-oriented, focu
 
 <p>Supported Languages: [<code>en</code>, <code>de</code>, <code>es</code>]</p>
 
-<p>Returned labels: [<code>positive</code>,<code>negative</code>,<code>unrecognized</code>]</p>
+<p>Returned labels: [<code>positive</code>, <code>negative</code>, <code>unrecognized</code>]</p>
 <h3 id='http-request-4'>HTTP Request</h3>
 <p><code>POST https://api.symanto.net/sentiment</code></p>
 <h3 id='query-parameters-4'>Query Parameters</h3>
