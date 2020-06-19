@@ -75,7 +75,7 @@ curl -X POST "https://api.symanto.net/communication"
 ]
 ```
 
-This endpoint retrieves all psychological aspects of the author. Supported Languages: ar, cn, de, en, es, fr, it, nl, pt, ru, tr
+This endpoint retrieves all psychological aspects of the author. Supported Languages: ar, de, en, es, fr, it, nl, pt, ru, tr, zh
 
 ### HTTP Request
 
@@ -126,7 +126,7 @@ curl -X POST "https://api.symanto.net/emotion"
 ]
 ```
 
-This endpoint retrieves emotions from the written text. Supported language codes are:en,de,es
+This endpoint retrieves emotions from the written text. Supported language codes are: en, de, es
 Retrieved emotions can be any of:
 . anger
 . joy
@@ -184,7 +184,7 @@ curl -X POST "https://api.symanto.net/personality"
 Personality traits evaluates content and writing style to determine how the author makes decisions.
 Our model identifies whether an author is Emotional (relationship-oriented, focusing on social values and empathy) or Rational (objective and pragmatic, focusing on facts and logical deduction).
 
-Supported Languages: ar, cn, de, en, es, fr, it, nl, pt, ru, tr
+Supported Languages: ar, de, en, es, fr, it, nl, pt, ru, tr, zh
 
 Returned labels:
 . yes
