@@ -11,11 +11,15 @@ paths:
         - Text Analysis
       summary: Communication & Tonality
       description: |-
-        Understand the basic user aspects of the author.
+        Identify the purpose and writing style of a written text.
 
-        Supported Languages: ar, de, en, es, fr, it, nl, pt, ru, tr, zh
+        Supported Languages: [`ar`, `de`, `en`, `es`, `fr`, `it`, `nl`, `pt`, `ru`, `tr`, `zh`]
 
-        This is an aggregation call for all the other bua calls.
+        Returned labels:
+        * action-seeking
+        * fact-oriented
+        * information-seeking
+        * self-revealing
       operationId: communication
       parameters:
         - name: all
@@ -47,16 +51,15 @@ paths:
         - Text Analysis
       summary: Emotion Analysis
       description: |-
-        Performs emotion analysis on the text.
+        Detect the emotions of the text.
 
-        Supported Langauges: en, de, es
+        Supported Langauges: [`en`, `de`, `es`]
 
         Returned labels:
         * anger
         * joy
         * love
         * sadness
-        * unrecognized
       operationId: emotion
       parameters:
         - name: all
@@ -88,16 +91,14 @@ paths:
         - Text Analysis
       summary: Personality Traits
       description: |-
-        Personality traits evaluates content and writing style to determine how the author makes decisions. 
+        Predict the personality trait of author of any written text.
 
-        Our model identifies whether an author is Emotional (relationship-oriented, focusing on social values and empathy) or Rational (objective and pragmatic, focusing on facts and logical deduction). 
-
-        Supported Languages: ar, de, en, es, fr, it, nl, pt, ru, tr, zh
+        Supported Languages: [`ar`, `de`, `en`, `es`, `fr`, `it`, `nl`, `pt`, `ru`, `tr`, `zh`]
 
         Returned labels:
 
-        * yes
-        * no
+        * emotional
+        * rational
       operationId: personality
       parameters:
         - name: all
@@ -129,14 +130,13 @@ paths:
         - Text Analysis
       summary: Sentiment Analysis
       description: |-
-        Understand whether your text has a positive or negative sentiment.
+        Evaluate the overall tonality of the text.
 
-        Supported Languages: en, de, es
+        Supported Languages: [`en`, `de`, `es`]
 
         Returned labels:
         * positive
         * negative
-        * unrecognized
       operationId: sentiment
       parameters:
         - name: all
