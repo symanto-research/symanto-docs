@@ -230,7 +230,7 @@
             <a href="#text-analysis" class="toc-h1 toc-link" data-title="Text Analysis">Text Analysis</a>
               <ul class="toc-list-h2">
                   <li>
-                    <a href="#communication-amp-tonality" class="toc-h2 toc-link" data-title="Communication &amp; Tonality">Communication &amp; Tonality</a>
+                    <a href="#communication-style" class="toc-h2 toc-link" data-title="Communication Style">Communication Style</a>
                   </li>
                   <li>
                     <a href="#emotion-analysis" class="toc-h2 toc-link" data-title="Emotion Analysis">Emotion Analysis</a>
@@ -278,7 +278,7 @@
 <aside class="notice">
 You must replace <code>opensesame</code> with your personal API key.
 </aside>
-<h1 id='text-analysis'>Text Analysis</h1><h2 id='communication-amp-tonality'>Communication &amp; Tonality</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://api.symanto.net/communication"</span> 
+<h1 id='text-analysis'>Text Analysis</h1><h2 id='communication-style'>Communication Style</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://api.symanto.net/communication"</span> 
 <span class="nt">-H</span> <span class="s2">"accept: application/json"</span> 
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
 <span class="nt">-H</span> <span class="s2">"x-api-key: opensesame"</span> 
@@ -311,18 +311,6 @@ You must replace <code>opensesame</code> with your personal API key.
     </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
     </span><span class="nl">"predictions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
       </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"prediction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"action-seeking"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"probability"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.0008584096212871373</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"prediction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fact-oriented"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"probability"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00006800901610404253</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
-        </span><span class="nl">"prediction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"information-seeking"</span><span class="p">,</span><span class="w">
-        </span><span class="nl">"probability"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.00007450413249898702</span><span class="w">
-      </span><span class="p">},</span><span class="w">
-      </span><span class="p">{</span><span class="w">
         </span><span class="nl">"prediction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"self-revealing"</span><span class="p">,</span><span class="w">
         </span><span class="nl">"probability"</span><span class="p">:</span><span class="w"> </span><span class="mf">0.9997937083244324</span><span class="w">
       </span><span class="p">}</span><span class="w">
@@ -330,7 +318,11 @@ You must replace <code>opensesame</code> with your personal API key.
   </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint retrieves all psychological aspects of the author. </p>
+<p>Detect the communication purpose and style of the text. The style includes: 
+- <em>self-revealing</em> (sharing one&#39;s one experience and opinion)
+- <em>fact-oriented</em> (focusing on factual information, objective observations or statements)
+- <em>information-seeking</em> (posing questions)
+- <em>action-seeking</em> (aiming to trigger someone&#39;s action by giving recommendation, requests or advice). </p>
 
 <p>Supported Languages: [ <code>ar</code>, <code>de</code>, <code>en</code>, <code>es</code>, <code>fr</code>, <code>it</code>, <code>nl</code>, <code>pt</code>, <code>ru</code>, <code>tr</code>, <code>zh</code> ]</p>
 
@@ -423,7 +415,7 @@ Remember — to successfully run this you need to authenticate using a valid api
 
 <p>Supported language codes are: [ <code>de</code>, <code>en</code>, <code>es</code> ]</p>
 
-<p>Retrieved emotions can be any of: [<code>anger</code>, <code>joy</code>, <code>love</code>, <code>sadness</code>]</p>
+<p>Retrieved emotions can be any of: [<code>anger</code>, <code>joy</code>, <code>love</code>, <code>sadness</code>, <code>surprise</code>]</p>
 <h3 id='http-request-2'>HTTP Request</h3>
 <p><code>POST https://api.symanto.net/emotion</code></p>
 <h3 id='query-parameters-2'>Query Parameters</h3>
@@ -504,8 +496,7 @@ Remember — to successfully run this you need to authenticate using a valid api
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
-<p>Personality traits evaluates content and writing style to determine how the author makes decisions.
-Our model identifies whether an author is Emotional (relationship-oriented, focusing on social values and empathy) or Rational (objective and pragmatic, focusing on facts and logical deduction).</p>
+<p>Predict the personality traits to understand how the author of the written text makes decisions, whether they are <em>Emotional</em> (relationship-oriented, focusing on social values and empathy) or <em>Rational</em> (objective and pragmatic, focusing on facts and logical deduction).</p>
 
 <p>Supported Languages: [ <code>ar</code>, <code>de</code>, <code>en</code>, <code>es</code>, <code>fr</code>, <code>it</code>, <code>nl</code>, <code>pt</code>, <code>ru</code>, <code>tr</code>, <code>zh</code> ]</p>
 
@@ -710,7 +701,7 @@ Our model identifies whether an author is Emotional (relationship-oriented, focu
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
-<p>This endpoint extracts topics and sentiments from the text and tries to see if there is a meaningful relation between them. </p>
+<p>Detects topics, topic category of each topic, and then analyzes the sentiment towards each of the topics mentioned.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
 <p><code>POST https://api.symanto.net/topic-sentiment</code></p>
 <h3 id='query-parameters-5'>Query Parameters</h3>
@@ -786,8 +777,9 @@ Our model identifies whether an author is Emotional (relationship-oriented, focu
     </span><span class="p">}</span><span class="w">
 </span><span class="p">]</span><span class="w">
 </span></code></pre></div>
-<p>Identifies what language a text is written in. Only languages that our API supports can be analyzed.
-Returned labels:
+<p>Identify the language of the input text. Only languages that our API supports can be analyzed.</p>
+
+<p>Returned labels:
 language_code of the detected language</p>
 <h3 id='http-request-6'>HTTP Request</h3>
 <p><code>POST https://api.symanto.net/language-detection</code></p>
