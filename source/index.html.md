@@ -37,6 +37,82 @@ You must replace <code>opensesame</code> with your personal API key.
 
 # Text Analysis 
 
+## Personality Traits
+
+```shell
+curl -X POST "https://api.symanto.net/personality" 
+-H "accept: application/json" 
+-H "Content-Type: application/json" 
+-H "x-api-key: opensesame" 
+-d "[{\"id\":1,\"text\":\"I love the service\",\"language\":\"en\"}]"
+```
+
+```python
+import requests
+
+url = "https://api.symanto.net/personality"
+
+payload = "[{ \"id\": \"1\", \"text\": \"I love the service\", \"language\": \"en\" }]"
+headers = {
+    "x-api-key": "opensesame",
+    "Content-Type": "application/json"
+}
+response = requests.request("POST", url, headers=headers, data=payload)
+```
+
+```java
+OkHttpClient client = new OkHttpClient().newBuilder().build();
+MediaType mediaType = MediaType.parse("application/json");
+RequestBody body = RequestBody.create("[ { \"id\": \"1\", \"text\": \"I love the service\", \"language\": \"en\" }]", mediaType);
+Request request = new Request.Builder()
+    .url("https://api.symanto.net/personality")
+    .method("POST", body)
+    .addHeader("x-api-key",Constants.API_KEY)
+    .build();
+Response response = client.newCall(request).execute();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "id": "1",
+        "predictions": [
+            {
+                "prediction": "emotional",
+                "probability": 0.9997281432151794
+            }
+        ]
+    }
+]
+```
+
+Predict the personality traits to understand how the author of the written text makes decisions, whether they are _Emotional_ (relationship-oriented, focusing on social values and empathy) or _Rational_ (objective and pragmatic, focusing on facts and logical deduction).
+
+Supported Languages: [ `ar`, `de`, `en`, `es`, `fr`, `it`, `nl`, `pt`, `ru`, `tr`, `zh` ]
+
+Returned labels: [`emotional`, `rational`]
+
+### HTTP Request
+
+`POST https://api.symanto.net/personality`
+
+### Query Parameters
+
+Parameter | Default | Description
+--------- | ------- | -----------
+all       | false   | returns all predictions, not only the most probable one
+
+### REQUEST BODY SCHEMA : application/json
+
+Parameter | Optionality | Description
+--------- | ----------- | -----------
+id        | Optional    | id of the post
+text      | Required    | the text to analyse
+language  | Required    | language_code of the text
+
+
 ## Communication Style
 
 
@@ -197,82 +273,6 @@ id        | Optional    | id of the post
 text      | Required    | the text to analyse
 language  | Required    | language_code of the text
 
-
-
-## Personality Traits
-
-```shell
-curl -X POST "https://api.symanto.net/personality" 
--H "accept: application/json" 
--H "Content-Type: application/json" 
--H "x-api-key: opensesame" 
--d "[{\"id\":1,\"text\":\"I love the service\",\"language\":\"en\"}]"
-```
-
-```python
-import requests
-
-url = "https://api.symanto.net/personality"
-
-payload = "[{ \"id\": \"1\", \"text\": \"I love the service\", \"language\": \"en\" }]"
-headers = {
-    "x-api-key": "opensesame",
-    "Content-Type": "application/json"
-}
-response = requests.request("POST", url, headers=headers, data=payload)
-```
-
-```java
-OkHttpClient client = new OkHttpClient().newBuilder().build();
-MediaType mediaType = MediaType.parse("application/json");
-RequestBody body = RequestBody.create("[ { \"id\": \"1\", \"text\": \"I love the service\", \"language\": \"en\" }]", mediaType);
-Request request = new Request.Builder()
-    .url("https://api.symanto.net/personality")
-    .method("POST", body)
-    .addHeader("x-api-key",Constants.API_KEY)
-    .build();
-Response response = client.newCall(request).execute();
-```
-
-> The above command returns JSON structured like this:
-
-```json
-[
-    {
-        "id": "1",
-        "predictions": [
-            {
-                "prediction": "emotional",
-                "probability": 0.9997281432151794
-            }
-        ]
-    }
-]
-```
-
-Predict the personality traits to understand how the author of the written text makes decisions, whether they are _Emotional_ (relationship-oriented, focusing on social values and empathy) or _Rational_ (objective and pragmatic, focusing on facts and logical deduction).
-
-Supported Languages: [ `ar`, `de`, `en`, `es`, `fr`, `it`, `nl`, `pt`, `ru`, `tr`, `zh` ]
-
-Returned labels: [`emotional`, `rational`]
-
-### HTTP Request
-
-`POST https://api.symanto.net/personality`
-
-### Query Parameters
-
-Parameter | Default | Description
---------- | ------- | -----------
-all       | false   | returns all predictions, not only the most probable one
-
-### REQUEST BODY SCHEMA : application/json
-
-Parameter | Optionality | Description
---------- | ----------- | -----------
-id        | Optional    | id of the post
-text      | Required    | the text to analyse
-language  | Required    | language_code of the text
 
 ## Sentiment Analysis
 
@@ -436,6 +436,8 @@ Response response = client.newCall(request).execute();
 ```
 Detects topics, topic category of each topic, and then analyzes the sentiment towards each of the topics mentioned.
 
+Supported Languages: [`en`, `de`]
+
 ### HTTP Request
 
 `POST https://api.symanto.net/topic-sentiment`
@@ -444,7 +446,14 @@ Detects topics, topic category of each topic, and then analyzes the sentiment to
 
 Parameter | Default | Description
 --------- | ------- | -----------
-domain    | -       | Enum: "Ecom" "Employee". Provide analysis domain for better extraction (optional)
+domain    | -       | Provide analysis domain for domain-specific extraction (optional)
+
+### Available domains
+
+Enum | Description 
+--------- | -----------
+"Ecom"      | Use this domain to retrieve insights about experience, product and service. 
+"Employee"  | Use this domain to retrieve insights about associates, communication, culture, development & resources, leadership & planning, overall perception, pay & benefits, role, treatment and work environment.
 
 ### REQUEST BODY SCHEMA : application/json
 
