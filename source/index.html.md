@@ -37,7 +37,7 @@ You must replace <code>opensesame</code> with your personal API key.
 
 # Text Analysis 
 
-## Communication & Tonality
+## Communication Style
 
 
 ```shell
@@ -81,18 +81,6 @@ Response response = client.newCall(request).execute();
     "id": "1",
     "predictions": [
       {
-        "prediction": "action-seeking",
-        "probability": 0.0008584096212871373
-      },
-      {
-        "prediction": "fact-oriented",
-        "probability": 0.00006800901610404253
-      },
-      {
-        "prediction": "information-seeking",
-        "probability": 0.00007450413249898702
-      },
-      {
         "prediction": "self-revealing",
         "probability": 0.9997937083244324
       }
@@ -101,7 +89,11 @@ Response response = client.newCall(request).execute();
 ]
 ```
 
-This endpoint retrieves all psychological aspects of the author. 
+Detect the communication purpose and style of the text. The style includes: 
+- _self-revealing_ (sharing one's one experience and opinion)
+- _fact-oriented_ (focusing on factual information, objective observations or statements)
+- _information-seeking_ (posing questions)
+- _action-seeking_ (aiming to trigger someone's action by giving recommendation, requests or advice). 
 
 Supported Languages: [ `ar`, `de`, `en`, `es`, `fr`, `it`, `nl`, `pt`, `ru`, `tr`, `zh` ]
 
@@ -184,7 +176,7 @@ This endpoint retrieves emotions from the written text.
 
 Supported language codes are: [ `de`, `en`, `es` ]
 
-Retrieved emotions can be any of: [`anger`, `joy`, `love`, `sadness`]
+Retrieved emotions can be any of: [`anger`, `joy`, `love`, `sadness`, `surprise`]
 
 
 ### HTTP Request
@@ -258,8 +250,7 @@ Response response = client.newCall(request).execute();
 ]
 ```
 
-Personality traits evaluates content and writing style to determine how the author makes decisions.
-Our model identifies whether an author is Emotional (relationship-oriented, focusing on social values and empathy) or Rational (objective and pragmatic, focusing on facts and logical deduction).
+Predict the personality traits to understand how the author of the written text makes decisions, whether they are _Emotional_ (relationship-oriented, focusing on social values and empathy) or _Rational_ (objective and pragmatic, focusing on facts and logical deduction).
 
 Supported Languages: [ `ar`, `de`, `en`, `es`, `fr`, `it`, `nl`, `pt`, `ru`, `tr`, `zh` ]
 
@@ -443,7 +434,7 @@ Response response = client.newCall(request).execute();
     }
 ]
 ```
-This endpoint extracts topics and sentiments from the text and tries to see if there is a meaningful relation between them. 
+Detects topics, topic category of each topic, and then analyzes the sentiment towards each of the topics mentioned.
 
 ### HTTP Request
 
@@ -509,7 +500,8 @@ Response response = client.newCall(request).execute();
     }
 ]
 ```
-Identifies what language a text is written in. Only languages that our API supports can be analyzed.
+Identify the language of the input text. Only languages that our API supports can be analyzed.
+
 Returned labels:
 language_code of the detected language
 
