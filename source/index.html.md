@@ -67,7 +67,7 @@ RequestBody body = RequestBody.create("[ { \"id\": \"1\", \"text\": \"I love the
 Request request = new Request.Builder()
     .url("https://api.symanto.net/personality")
     .method("POST", body)
-    .addHeader("x-api-key",Constants.API_KEY)
+    .addHeader("x-api-key","opensesame")
     .build();
 Response response = client.newCall(request).execute();
 ```
@@ -375,11 +375,11 @@ response = requests.request("POST", url, headers=headers, data=payload)
 ```java
 OkHttpClient client = new OkHttpClient().newBuilder().build();
 MediaType mediaType = MediaType.parse("application/json");
-RequestBody body = RequestBody.create("[{ \"id\": \"1\", \"text\": \"Hello I love the service\",\"language\": \"en\"}]", mediaType);
+RequestBody body = RequestBody.create("[{ \"id\": \"1\", \"text\": \"Hello I love the service\",\"language\": \"en\"} ]", mediaType);
 Request request = new Request.Builder()
     .url("https://api.symanto.net/topic-sentiment")
     .method("POST", "opensesame")
-    .addHeader("x-api-key",Constants.API_KEY)
+    .addHeader("x-api-key","opensesame")
     .build();
 Response response = client.newCall(request).execute();
 ```
