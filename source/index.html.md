@@ -181,17 +181,17 @@ Returned labels: [`action-seeking`, `fact-oriented`, `information-seeking`, `sel
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-all       | false   | returns all predictions, not only the most probable one
+Parameter | Type    | Default | Description
+--------- | ------- | ------- | -----------
+all       | bool    | false   | returns all predictions, not only the most probable one
 
 ### REQUEST BODY SCHEMA : application/json
 
-Parameter | Optionality | Description
---------- | ----------- | -----------
-id        | Optional    | id of the post
-text      | Required    | the text to analyse
-language  | Required    | language_code of the text
+Parameter | Type        | Optionality | Description
+--------- | ----------- | ----------- | -----------
+id        | string      | Optional    | id of the post
+text      | string      | Required    | the text to analyse
+language  | string      | Required    | language_code of the text
 
 <aside class="success">
 Remember — to successfully run this you need to authenticate using a valid api-key.
@@ -261,17 +261,17 @@ Retrieved emotions can be any of: [`anger`, `joy`, `love`, `sadness`, `surprise`
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-all       | false   | returns all predictions, not only the most probable one
+Parameter | Type    | Default | Description
+--------- | ------- | ------- | -----------
+all       | bool    | false   | returns all predictions, not only the most probable one
 
 ### REQUEST BODY SCHEMA : application/json
 
-Parameter | Optionality | Description
---------- | ----------- | -----------
-id        | Optional    | id of the post
-text      | Required    | the text to analyse
-language  | Required    | language_code of the text
+Parameter | Type        | Optionality | Description
+--------- | ----------- | ----------- | -----------
+id        | string      | Optional    | id of the post
+text      | string      | Required    | the text to analyse
+language  | string      | Required    | language_code of the text
 
 
 ## Sentiment Analysis
@@ -337,17 +337,17 @@ Returned labels: [`positive`, `negative`, `unrecognized`]
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-all       | false   | returns all predictions, not only the most probable one
+Parameter | Type    | Default | Description
+--------- | ------- | ------- | -----------
+all       | bool    | false   | returns all predictions, not only the most probable one
 
 ### REQUEST BODY SCHEMA : application/json
 
-Parameter | Optionality | Description
---------- | ----------- | -----------
-id        | Optional    | id of the post
-text      | Required    | the text to analyse
-language  | Required    | language_code of the text
+Parameter | Type        | Optionality | Description
+--------- | ----------- | ----------- | -----------
+id        | string      | Optional    | id of the post
+text      | string      | Required    | the text to analyse
+language  | string      | Required    | language_code of the text
 
 ## Topic sentiment extraction
 
@@ -450,18 +450,18 @@ domain    | -       | Provide analysis domain for domain-specific extraction (op
 
 ### Available domains
 
-Enum | Description 
---------- | -----------
+Enum        | Description 
+---------   | -----------
 "Ecom"      | Use this domain to retrieve insights about experience, product and service. 
 "Employee"  | Use this domain to retrieve insights about associates, communication, culture, development & resources, leadership & planning, overall perception, pay & benefits, role, treatment and work environment.
 
 ### REQUEST BODY SCHEMA : application/json
 
-Parameter | Optionality | Description
---------- | ----------- | -----------
-id        | Optional    | id of the post
-text      | Required    | the text to analyse
-language  | Required    | language_code of the text
+Parameter | Type        | Optionality | Description
+--------- | ----------- | ----------- | -----------
+id        | string      | Optional    | id of the post
+text      | string      | Required    | the text to analyse
+language  | string      | Required    | language_code of the text
 
 ## Language Detection
 
@@ -521,7 +521,7 @@ language_code of the detected language
 
 ### REQUEST BODY SCHEMA : application/json
 
-Parameter | Optionality | Description
---------- | ----------- | -----------
-id        | Optional    | id of the post
-text      | Required    | the text to analyse
+Parameter | Type        | Optionality | Description
+--------- | ----------- | ----------- | -----------
+id        | string      | Optional    | id of the post
+text      | string      | Required    | the text to analyse
