@@ -237,7 +237,7 @@ RequestBody body = RequestBody.create("[ { \"id\": \"1\", \"text\": \"I love the
 Request request = new Request.Builder()
     .url("https://api.symanto.net/personality")
     .method("POST", body)
-    .addHeader("x-api-key",Constants.API_KEY)
+    .addHeader("x-api-key","opensesame")
     .build();
 Response response = client.newCall(request).execute();
 ```
