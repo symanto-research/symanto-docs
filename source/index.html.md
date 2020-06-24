@@ -349,7 +349,7 @@ id        | string      | Optional    | id of the post
 text      | string      | Required    | the text to analyse
 language  | string      | Required    | language_code of the text
 
-## Topic sentiment extraction
+## Topic Sentiment Extraction
 
 ```shell
 curl -X POST "https://api.symanto.net/topic-sentiment" 
