@@ -88,7 +88,7 @@ Response response = client.newCall(request).execute();
 ]
 ```
 
-Predict the personality traits to understand how the author of the written text makes decisions, whether they are _Emotional_ (relationship-oriented, focusing on social values and empathy) or _Rational_ (objective and pragmatic, focusing on facts and logical deduction).
+Predicts the personality traits to understand how the author of the written text makes decisions, whether they are _Emotional_ (relationship-oriented, focusing on social values and empathy) or _Rational_ (objective and pragmatic, focusing on facts and logical deduction).
 
 Supported Languages: [ `ar`, `de`, `en`, `es`, `fr`, `it`, `nl`, `pt`, `ru`, `tr`, `zh` ]
 
@@ -107,7 +107,7 @@ all       | bool    | false   | returns all predictions, not only the most proba
 
 ### REQUEST BODY SCHEMA : application/json
 
-An array of max `32` items are allowed.
+An array of max `32` items is allowed.
 
 Parameter | Type        | Optionality | Description
 --------- | ----------- | ----------- | -----------
@@ -190,7 +190,7 @@ all       | bool    | false   | returns all predictions, not only the most proba
 
 ### REQUEST BODY SCHEMA : application/json
 
-An array of max `32` items are allowed.
+An array of max `32` items is allowed.
 
 Parameter | Type        | Optionality | Description
 --------- | ----------- | ----------- | -----------
@@ -272,7 +272,7 @@ all       | bool    | false   | returns all predictions, not only the most proba
 
 ### REQUEST BODY SCHEMA : application/json
 
-An array of max `512` items are allowed.
+An array of max `512` items is allowed.
 
 Parameter | Type        | Optionality | Description
 --------- | ----------- | ----------- | -----------
@@ -350,7 +350,7 @@ all       | bool    | false   | returns all predictions, not only the most proba
 
 ### REQUEST BODY SCHEMA : application/json
 
-An array of max `32` items are allowed.
+An array of max `32` items is allowed.
 
 Parameter | Type        | Optionality | Description
 --------- | ----------- | ----------- | -----------
@@ -530,7 +530,7 @@ language_code of the detected language
 
 ### REQUEST BODY SCHEMA : application/json
 
-An array of max `64` items are allowed.
+An array of max `64` items is allowed.
 
 Parameter | Type        | Optionality | Description
 --------- | ----------- | ----------- | -----------
