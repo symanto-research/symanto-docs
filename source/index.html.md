@@ -104,6 +104,8 @@ Parameter | Type    | Default | Description
 --------- | ------- | ------- | -----------
 all       | bool    | false   | returns all predictions, not only the most probable one
 
+An array of max `32` items are allowed.
+
 ### REQUEST BODY SCHEMA : application/json
 
 Parameter | Type        | Optionality | Description
