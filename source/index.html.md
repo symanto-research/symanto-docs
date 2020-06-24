@@ -104,9 +104,10 @@ Parameter | Type    | Default | Description
 --------- | ------- | ------- | -----------
 all       | bool    | false   | returns all predictions, not only the most probable one
 
-An array of max `32` items are allowed.
 
 ### REQUEST BODY SCHEMA : application/json
+
+An array of max `32` items are allowed.
 
 Parameter | Type        | Optionality | Description
 --------- | ----------- | ----------- | -----------
@@ -189,6 +190,8 @@ all       | bool    | false   | returns all predictions, not only the most proba
 
 ### REQUEST BODY SCHEMA : application/json
 
+An array of max `32` items are allowed.
+
 Parameter | Type        | Optionality | Description
 --------- | ----------- | ----------- | -----------
 id        | string      | Optional    | id of the post
@@ -269,6 +272,8 @@ all       | bool    | false   | returns all predictions, not only the most proba
 
 ### REQUEST BODY SCHEMA : application/json
 
+An array of max `512` items are allowed.
+
 Parameter | Type        | Optionality | Description
 --------- | ----------- | ----------- | -----------
 id        | string      | Optional    | id of the post
@@ -344,6 +349,8 @@ Parameter | Type    | Default | Description
 all       | bool    | false   | returns all predictions, not only the most probable one
 
 ### REQUEST BODY SCHEMA : application/json
+
+An array of max `32` items are allowed.
 
 Parameter | Type        | Optionality | Description
 --------- | ----------- | ----------- | -----------
@@ -522,6 +529,8 @@ language_code of the detected language
 `POST https://api.symanto.net/language-detection`
 
 ### REQUEST BODY SCHEMA : application/json
+
+An array of max `64` items are allowed.
 
 Parameter | Type        | Optionality | Description
 --------- | ----------- | ----------- | -----------
