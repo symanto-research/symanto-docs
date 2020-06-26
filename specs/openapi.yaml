@@ -1,7 +1,9 @@
 openapi: 3.0.3
 info:
-  title: Symanto API
+  title: 'Psycholinguistic Text Analytics'
   version: '1.0'
+  description: 'We aim to provide the deepest understanding of people through psychology & AI'
+  termsOfService: 'https://developers.symanto.net/terms-of-service'
 servers:
   - url: 'https://api.symanto.net'
 paths:
@@ -173,7 +175,7 @@ paths:
       parameters:
         - name: domain
           in: query
-          description: Provide analysis domain for better extraction (optional) 
+          description: Provide analysis domain for better extraction (optional)
           schema:
             enum:
               #- Airlines
@@ -349,7 +351,7 @@ components:
       properties:
         topic:
           $ref: '#/components/schemas/Topic'
-        sentiment: 
+        sentiment:
           $ref: '#/components/schemas/Sentiment'
         sentence:
           type: string
