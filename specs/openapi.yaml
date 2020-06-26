@@ -4,6 +4,10 @@ info:
   version: '1.0'
   description: 'We aim to provide the deepest understanding of people through psychology & AI'
   termsOfService: 'https://developers.symanto.net/terms-of-service'
+  contact:
+    name: Symanto Support
+    email: support@symanto.net
+    url: https://developers.symanto.net
 servers:
   - url: 'https://api.symanto.net'
 paths:
