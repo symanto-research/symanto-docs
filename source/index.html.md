@@ -466,6 +466,8 @@ Enum        | Description
 
 ### REQUEST BODY SCHEMA : application/json
 
+An array of max `64` items is allowed. Only the first `2000` characters from each text will be analyzed.
+
 Parameter | Type        | Optionality | Description
 --------- | ----------- | ----------- | -----------
 id        | string      | Optional    | id of the post
