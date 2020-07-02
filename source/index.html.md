@@ -8,6 +8,8 @@ language_tabs: # must be one of https://git.io/vQNgJ
 
 toc_footers:
   - <a href='https://developers.symanto.net/signup'>Sign Up for a Developer Key</a>
+  - <a href='https://api.symanto.net/docs'>Try it out in Swagger</a>
+  - <a href='https://app.getpostman.com/run-collection/1a5af5975816c49e8e33'><img src="https://run.pstmn.io/button.svg"></img></a>
 
 includes:
   - errors
