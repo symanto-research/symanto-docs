@@ -9,7 +9,7 @@ language_tabs: # must be one of https://git.io/vQNgJ
 toc_footers:
   - <p><a href='https://developers.symanto.net/signup' target='_blank'>Sign Up for a Developer Key</a></p>
   - <p><a href='https://api.symanto.net/docs' target='_blank'>Try it out in Swagger</a></p>
-  - <p><a href='https://app.getpostman.com/run-collection/1a5af5975816c49e8e33' target='_blank'><img src="https://run.pstmn.io/button.svg"></img></a></p>
+  - <p><a href='https://app.getpostman.com/run-collection/90504c7b1b76255c13a4' target='_blank'><img src="https://run.pstmn.io/button.svg"></img></a></p>
 
 includes:
   - errors
@@ -90,7 +90,7 @@ Response response = client.newCall(request).execute();
 ]
 ```
 
-Predicts the personality traits to understand how the author of the written text makes decisions, whether they are _Emotional_ (relationship-oriented, focusing on social values and empathy) or _Rational_ (objective and pragmatic, focusing on facts and logical deduction).
+Predict the personality traits to understand how the author of the written text makes decisions, whether they are Emotional (relationship-oriented, focusing on social values and empathy) or Rational (objective and pragmatic, focusing on facts and logical deduction).
 
 Supported Languages: [ `ar`, `de`, `en`, `es`, `fr`, `it`, `nl`, `pt`, `ru`, `tr`, `zh` ]
 
@@ -255,7 +255,7 @@ Response response = client.newCall(request).execute();
 ]
 ```
 
-This endpoint retrieves emotions from the written text. 
+Detect the emotion expressed in the text. 
 
 Supported language codes are: [ `de`, `en`, `es` ]
 
@@ -333,7 +333,7 @@ Response response = client.newCall(request).execute();
   }
 ]
 ```
-Understand whether your text has a positive or negative sentiment.
+Detect the text-level sentiment from a piece of text.
 
 Supported Languages: [`en`, `de`, `es`]
 
@@ -524,7 +524,7 @@ Response response = client.newCall(request).execute();
     }
 ]
 ```
-Identify the language of the input text. Only languages that our API supports can be analyzed.
+Identify the language of the input text. 
 
 Returned labels:
 language_code of the detected language
