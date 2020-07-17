@@ -455,16 +455,18 @@ Supported Languages: [`en`, `de`]
 
 ### Query Parameters
 
-Parameter | Default | Description
---------- | ------- | -----------
-domain    | -       | Provide analysis domain for domain-specific extraction (optional)
+Parameter | Default | Optionality | Description
+--------- | ------- | ----------- | -----------
+domain    | -       | Optional    | Provide analysis domain for domain-specific extraction. When not provided a generic model will be applied.
 
 ### Available domains
 
 Enum        | Description 
 ---------   | -----------
-"Ecom"      | Use this domain to retrieve insights about experience, product and service. 
-"Employee"  | Use this domain to retrieve insights about associates, communication, culture, development & resources, leadership & planning, overall perception, pay & benefits, role, treatment and work environment.
+Ecom        | Use this domain to retrieve insights about experience, product and service. 
+Employee    | Use this domain to retrieve insights about associates, communication, culture, development & resources, leadership & planning, overall perception, pay & benefits, role, treatment and work environment.
+Hotel       | 
+Restaurant  | 
 
 ### REQUEST BODY SCHEMA : application/json
 
