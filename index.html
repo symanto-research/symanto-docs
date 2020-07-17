@@ -745,13 +745,15 @@ Remember — to successfully run this you need to authenticate using a valid api
 <tr>
 <th>Parameter</th>
 <th>Default</th>
+<th>Optionality</th>
 <th>Description</th>
 </tr>
 </thead><tbody>
 <tr>
 <td>domain</td>
 <td>-</td>
-<td>Provide analysis domain for domain-specific extraction (optional)</td>
+<td>Optional</td>
+<td>Provide analysis domain for domain-specific extraction. When not provided a generic model will be applied.</td>
 </tr>
 </tbody></table>
 <h3 id='available-domains'>Available domains</h3>
@@ -762,12 +764,20 @@ Remember — to successfully run this you need to authenticate using a valid api
 </tr>
 </thead><tbody>
 <tr>
-<td>&quot;Ecom&quot;</td>
+<td>Ecom</td>
 <td>Use this domain to retrieve insights about experience, product and service.</td>
 </tr>
 <tr>
-<td>&quot;Employee&quot;</td>
+<td>Employee</td>
 <td>Use this domain to retrieve insights about associates, communication, culture, development &amp; resources, leadership &amp; planning, overall perception, pay &amp; benefits, role, treatment and work environment.</td>
+</tr>
+<tr>
+<td>Hotel</td>
+<td></td>
+</tr>
+<tr>
+<td>Restaurant</td>
+<td></td>
 </tr>
 </tbody></table>
 <h3 id='request-body-schema-application-json-5'>REQUEST BODY SCHEMA : application/json</h3>
