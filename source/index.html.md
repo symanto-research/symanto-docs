@@ -337,7 +337,7 @@ Detect the text-level sentiment from a piece of text.
 
 Supported Languages: [`en`, `de`, `es`]
 
-Returned labels: [`positive`, `negative`, `unrecognized`]
+Returned labels: [`positive`, `negative`]
 
 
 ### HTTP Request
@@ -465,8 +465,8 @@ Enum        | Description
 ---------   | -----------
 Ecom        | Use this domain to retrieve insights about experience, product and service. 
 Employee    | Use this domain to retrieve insights about associates, communication, culture, development & resources, leadership & planning, overall perception, pay & benefits, role, treatment and work environment.
-Hotel       | 
-Restaurant  | 
+Hotel       | Use this domain to retrieve insights about associates, booking process, brand, facilities, food&beverage, hotel areas, hotel front office, hotel room, marketing, monetary, overall experience, parking, transport, venue, washrooms, website, wellness/recreation. 
+Restaurant  | Use this domain to retrieve insights about app/website, eating frequency, eating time, health & dietry needs, marketing, overall experience, process, product, service, social, venue. 
 
 ### REQUEST BODY SCHEMA : application/json
 
