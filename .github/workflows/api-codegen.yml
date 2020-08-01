@@ -5,7 +5,7 @@ on:
     branches:
       - master
     paths:
-      - 'specs/openapi.yml'
+      - 'specs/openapi.yaml'
 jobs:
   validate:
     runs-on: ubuntu-latest
