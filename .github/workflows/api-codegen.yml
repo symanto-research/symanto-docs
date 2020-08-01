@@ -1,0 +1,28 @@
+name: api-codegen
+
+on:
+  push:
+    branches:
+      - master
+    paths:
+      - 'specs/openapi.yml'
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: wei/curl@master
+      working-directory: ./specs
+      with:
+        args: -XPOST https://converter.swagger.io/api/convert -H 'Content-Type: application/yaml' -H 'Accept: application/json' --data-binary @openapi.yaml -o openapi.json 
+
+    - name: push
+      uses: github-actions-x/commit@v2.6
+      with:
+        github-token: ${{ secrets.GITHUB_TOKEN }}
+        push-branch: 'master'
+        commit-message: 'openapi.json generated'
+        force-add: 'true'
+        files: specs/openapi.json
+        name: Auto Commit
