@@ -99,7 +99,7 @@ paths:
         - Text Analysis
       summary: Personality Traits
       description: |-
-        Predict the personality trait of author of any written text.
+        Predict the personality trait of author of any written text. 
 
         Supported Languages: [`ar`, `de`, `en`, `es`, `fr`, `it`, `nl`, `pt`, `ru`, `tr`, `zh`]
 
