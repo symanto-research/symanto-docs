@@ -12,10 +12,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - uses: wei/curl@master
-      working-directory: ./specs
       with:
-        args: -XPOST https://converter.swagger.io/api/convert -H 'Content-Type: application/yaml' -H 'Accept: application/json' --data-binary @openapi.yaml -o openapi.json 
+        args: "-XPOST https://converter.swagger.io/api/convert -H 'Content-Type: application/yaml' -H 'Accept: application/json' --data-binary '@specs/openapi.yaml' -o specs/openapi.json" 
 
     - name: push
       uses: github-actions-x/commit@v2.6
