@@ -204,7 +204,7 @@ language  | string      | Required    | language_code of the text
 Remember — to successfully run this you need to authenticate using a valid api-key.
 </aside>
 
-## Emotion Analysis
+## Emotion Analysis `experimental`
 
 ```shell
 curl -X POST "https://api.symanto.net/emotion" 
