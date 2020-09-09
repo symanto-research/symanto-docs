@@ -461,12 +461,19 @@ domain    | -       | Optional    | Provide analysis domain for domain-specific 
 
 ### Available domains
 
-Enum        | Description 
----------   | -----------
-Ecom        | Use this domain to retrieve insights about experience, product and service. 
-Employee    | Use this domain to retrieve insights about associates, communication, culture, development & resources, leadership & planning, overall perception, pay & benefits, role, treatment and work environment.
-Hotel       | Use this domain to retrieve insights about associates, booking process, brand, facilities, food&beverage, hotel areas, hotel front office, hotel room, marketing, monetary, overall experience, parking, transport, venue, washrooms, website, wellness/recreation. 
-Restaurant  | Use this domain to retrieve insights about app/website, eating frequency, eating time, health & dietry needs, marketing, overall experience, process, product, service, social, venue. 
+Enum        | Description | Supported Languages
+---------   | ----------- | -----------
+Automotive  | Use this domain to retrieve insights about attitude & behaviour, brand, communication, components, functions & services, location & facility, mobility & transfer, monetary, overall experience, product, service. | en, de
+Banking     | Use this domain to retrieve insights about banking, borrowing, customer service, digital experience, financial fitness, location & facility, product.  | en
+Ecom        | Use this domain to retrieve insights about experience, product and service.  | en, de, es
+Employee    | Use this domain to retrieve insights about associates, communication, culture, development & resources, leadership & planning, overall perception, pay & benefits, role, treatment and work environment.  | en, de
+Hotel       | Use this domain to retrieve insights about associates, booking process, brand, facilities, food&beverage, hotel areas, hotel front office, hotel room, marketing, monetary, overall experience, parking, transport, venue, washrooms, website, wellness/recreation.   | en, de
+Pharma      | Use this domain to retrieve insights about disease, duration, healthcare professional, healthtech, interaction, medication names, mode of administration, patient characteristics, product attributes, quality of life, studies & education.  | en
+Restaurant  | Use this domain to retrieve insights about app/website, eating frequency, eating time, health & dietry needs, marketing, overall experience, process, product, service, social, venue.  | en, de
+Retail      | Use this domain to retrieve insights about marketing, experience, product, service, staff service, store.  | en, de, es
+
+
+
 
 ### REQUEST BODY SCHEMA : application/json
 
