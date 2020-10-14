@@ -283,6 +283,89 @@ text      | string      | Required    | the text to analyse
 language  | string      | Required    | language_code of the text
 
 
+
+
+
+## Ekman Emotion Analysis
+
+```shell
+curl -X POST "https://api.symanto.net/ekman-emotion" 
+-H "accept: application/json" 
+-H "Content-Type: application/json" 
+-H "x-api-key: opensesame" 
+-d "[{\"id\":1,\"text\":\"I love the service\",\"language\":\"en\"}]"
+```
+
+```python
+import requests
+
+url = "https://api.symanto.net/ekman-emotion"
+
+payload = "[{ \"id\": \"1\", \"text\": \"I love the service\", \"language\": \"en\" }]"
+headers = {
+    "x-api-key": "opensesame",
+    "Content-Type": "application/json"
+}
+response = requests.request("POST", url, headers=headers, data=payload)
+```
+
+```java
+OkHttpClient client = new OkHttpClient().newBuilder().build();
+MediaType mediaType = MediaType.parse("application/json");
+RequestBody body = RequestBody.create("[ { \"id\": \"1\", \"text\": \"I love the service\", \"language\": \"en\" }]", mediaType);
+Request request = new Request.Builder()
+    .url("https://api.symanto.net/ekman-emotion")
+    .method("POST", body)
+    .addHeader("x-api-key","opensesame")
+    .build();
+Response response = client.newCall(request).execute();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "id": "1",
+        "predictions": [
+            {
+                "prediction": "joy",
+                "probability": 0.8415710926055908
+            }
+        ]
+    }
+]
+```
+
+Detect the emotion expressed in the text. 
+
+Supported language codes are: [ `de`, `en`, `es` ]
+
+Retrieved emotions can be any of: [`anger`, `disgust`, `fear`, `joy`,`no-emotion`, `sadness`, `surprise`]
+
+
+### HTTP Request
+
+`POST https://api.symanto.net/ekman-emotion`
+
+### Query Parameters
+
+Parameter | Type    | Default | Description
+--------- | ------- | ------- | -----------
+all       | bool    | false   | returns all predictions, not only the most probable one
+
+### REQUEST BODY SCHEMA : application/json
+
+An array of max `512` items is allowed.
+
+Parameter | Type        | Optionality | Description
+--------- | ----------- | ----------- | -----------
+id        | string      | Optional    | id of the post
+text      | string      | Required    | the text to analyse
+language  | string      | Required    | language_code of the text
+
+
+
 ## Sentiment Analysis
 
 ```shell
