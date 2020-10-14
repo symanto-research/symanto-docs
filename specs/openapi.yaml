@@ -97,7 +97,7 @@ paths:
     post:
       tags:
         - Text Analysis
-      summary: Ekman Emotions
+      summary: Emotion Analysis
       description: |-
         Detect the emotions of the text based on Ekman.
 
@@ -111,7 +111,7 @@ paths:
         * sadness
         * surprise
         * no-emotion
-      operationId:  ekman-emotion
+      operationId: ekman-emotion
       parameters:
         - name: all
           in: query
