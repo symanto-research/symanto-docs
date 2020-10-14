@@ -93,6 +93,49 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/ValidationErrors'
+   /emotion:
+    post:
+      tags:
+        - Text Analysis
+      summary: Ekman Emotions
+      description: |-
+        Detect the emotions of the text based on Ekman.
+
+        Supported Langauges: [`en`, `de`, `es`]
+
+        Returned labels:
+        * anger
+        * disgust
+        * fear
+        * joy
+        * sadness
+        * surprise
+        * no-emotion
+      operationId: emotion
+      parameters:
+        - name: all
+          in: query
+          schema:
+            type: boolean
+            default: false
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/PostRequest'
+      responses:
+        '200':
+          description: Successful Response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/PredictionResults'
+        '422':
+          description: Validation Error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ValidationErrors'
   /personality:
     post:
       tags:
