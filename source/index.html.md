@@ -548,6 +548,7 @@ Enum        | Description | Supported Languages
 ---------   | ----------- | -----------
 Automotive  | Use this domain to retrieve insights about attitude & behaviour, brand, communication, components, functions & services, location & facility, mobility & transfer, monetary, overall experience, product, service. | en, de
 Banking     | Use this domain to retrieve insights about banking, borrowing, customer service, digital experience, financial fitness, location & facility, product.  | en
+ConsumerElectronics     | Use this domain to retrieve insights about appearance&handling, attitude&behavior, brand, connectivity, delivery service, online experience, performance, product components, retailer, service and software.  | en
 Ecom        | Use this domain to retrieve insights about experience, product and service.  | en, de, es
 Employee    | Use this domain to retrieve insights about associates, communication, culture, development & resources, leadership & planning, overall perception, pay & benefits, role, treatment and work environment.  | en, de
 Hotel       | Use this domain to retrieve insights about associates, booking process, brand, facilities, food&beverage, hotel areas, hotel front office, hotel room, marketing, monetary, overall experience, parking, transport, venue, washrooms, website, wellness/recreation.   | en, de
