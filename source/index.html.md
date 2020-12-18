@@ -7,7 +7,6 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - java
 
 toc_footers:
-  - <p><a href='https://developers.symanto.net/signup' target='_blank'>Sign Up for a Developer Key</a></p>
   - <p><a href='https://api.symanto.net/docs' target='_blank'>Try it out in Swagger</a></p>
   - <p><a href='https://app.getpostman.com/run-collection/f464466e1f0bc5af1f18' target='_blank'><img src="https://run.pstmn.io/button.svg"></img></a></p>
 
