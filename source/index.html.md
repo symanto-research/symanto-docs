@@ -7,9 +7,10 @@ language_tabs: # must be one of https://git.io/vQNgJ
   - java
 
 toc_footers:
-  - <p><a href="https://rapidapi.com/collection/symanto-symanto-default-apis" target="_blank"><img src="https://storage.googleapis.com/code-snippets/connect-on-rapidapi-light.png" width="150" alt="Connect on RapidAPI"></a></p>
+  - <p><a href='https://www.symanto.com/get-in-touch/' target='_blank'>Get in Touch</a></p>
   - <p><a href='https://api.symanto.net/docs' target='_blank'>Try it out in Swagger</a></p>
   - <p><a href='https://app.getpostman.com/run-collection/f464466e1f0bc5af1f18' target='_blank'><img src="https://run.pstmn.io/button.svg"></img></a></p>
+    - <p><a href="https://rapidapi.com/collection/symanto-symanto-default-apis" target="_blank"><img src="https://storage.googleapis.com/code-snippets/connect-on-rapidapi-light.png" width="150" alt="Connect on RapidAPI"></a></p>
 
 includes:
   - errors
@@ -27,7 +28,7 @@ We have language binding in Shell. You can view code examples in the dark area t
 
 > Make sure to replace `opensesame` with your API key.
 
-Symanto API uses API keys to allow access to the API. You can register a new Symanto API key at our [developer portal](https://developers.symanto.net/signup).
+Symanto API uses API keys to allow access to the API. Please [get in touch](https://www.symanto.com/get-in-touch/) to receive an API key.
 
 Symanto API expects for the API key to be included in all API requests to the server in a header that looks like the following:
 
