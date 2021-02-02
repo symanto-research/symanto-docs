@@ -248,6 +248,9 @@
                     <a href="#topic-sentiment-extraction" class="toc-h2 toc-link" data-title="Topic Sentiment Extraction">Topic Sentiment Extraction</a>
                   </li>
                   <li>
+                    <a href="#brand-recommendation-analysis" class="toc-h2 toc-link" data-title="Brand recommendation analysis">Brand recommendation analysis</a>
+                  </li>
+                  <li>
                     <a href="#language-detection" class="toc-h2 toc-link" data-title="Language Detection">Language Detection</a>
                   </li>
               </ul>
@@ -936,6 +939,151 @@ Remember — to successfully run this you need to authenticate using a valid api
 <td>language_code of the text</td>
 </tr>
 </tbody></table>
+<h2 id='brand-recommendation-analysis'>Brand recommendation analysis</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://api.symanto.net/brand-recommendation"</span> 
+<span class="nt">-H</span> <span class="s2">"accept: application/json"</span> 
+<span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
+<span class="nt">-H</span> <span class="s2">"x-api-key: opensesame"</span> 
+<span class="nt">-d</span> <span class="s2">"[{</span><span class="se">\"</span><span class="s2">id</span><span class="se">\"</span><span class="s2">:1,</span><span class="se">\"</span><span class="s2">text</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">Hello I love the service</span><span class="se">\"</span><span class="s2">,</span><span class="se">\"</span><span class="s2">language</span><span class="se">\"</span><span class="s2">:</span><span class="se">\"</span><span class="s2">en</span><span class="se">\"</span><span class="s2">}]"</span>
+</code></pre></div><div class="highlight"><pre class="highlight python tab-python"><code><span class="kn">import</span> <span class="nn">requests</span>
+
+<span class="n">url</span> <span class="o">=</span> <span class="s">"https://api.symanto.net/brand-recommendation"</span>
+
+<span class="n">payload</span> <span class="o">=</span> <span class="s">"[{ </span><span class="se">\"</span><span class="s">id</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">1</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">text</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">Hello I love the service</span><span class="se">\"</span><span class="s">, </span><span class="se">\"</span><span class="s">language</span><span class="se">\"</span><span class="s">: </span><span class="se">\"</span><span class="s">en</span><span class="se">\"</span><span class="s"> }]"</span>
+<span class="n">headers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s">"x-api-key"</span><span class="p">:</span> <span class="s">"opensesame"</span><span class="p">,</span>
+    <span class="s">"Content-Type"</span><span class="p">:</span> <span class="s">"application/json"</span>
+<span class="p">}</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="s">"POST"</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">payload</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre class="highlight java tab-java"><code><span class="nc">OkHttpClient</span> <span class="n">client</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">OkHttpClient</span><span class="o">().</span><span class="na">newBuilder</span><span class="o">().</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">MediaType</span> <span class="n">mediaType</span> <span class="o">=</span> <span class="nc">MediaType</span><span class="o">.</span><span class="na">parse</span><span class="o">(</span><span class="s">"application/json"</span><span class="o">);</span>
+<span class="nc">RequestBody</span> <span class="n">body</span> <span class="o">=</span> <span class="nc">RequestBody</span><span class="o">.</span><span class="na">create</span><span class="o">(</span><span class="s">"[{ \"id\": \"1\", \"text\": \"Hello I love the service\",\"language\": \"en\"} ]"</span><span class="o">,</span> <span class="n">mediaType</span><span class="o">);</span>
+<span class="nc">Request</span> <span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="nc">Request</span><span class="o">.</span><span class="na">Builder</span><span class="o">()</span>
+    <span class="o">.</span><span class="na">url</span><span class="o">(</span><span class="s">"https://api.symanto.net/brand-recommendation"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">method</span><span class="o">(</span><span class="s">"POST"</span><span class="o">,</span> <span class="s">"opensesame"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">addHeader</span><span class="o">(</span><span class="s">"x-api-key"</span><span class="o">,</span><span class="s">"opensesame"</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">build</span><span class="o">();</span>
+<span class="nc">Response</span> <span class="n">response</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="na">newCall</span><span class="o">(</span><span class="n">request</span><span class="o">).</span><span class="na">execute</span><span class="o">();</span>
+</code></pre></div>
+<blockquote>
+<p>The above command returns JSON structured like this:</p>
+</blockquote>
+<div class="highlight"><pre class="highlight json tab-json"><code><span class="p">[</span><span class="w">
+    </span><span class="p">{</span><span class="w">
+        </span><span class="nl">"id"</span><span class="p">:</span><span class="w"> </span><span class="s2">"1"</span><span class="p">,</span><span class="w">
+        </span><span class="nl">"predictions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="nl">"probability"</span><span class="p">:</span><span class="w"> </span><span class="mf">1.0</span><span class="p">,</span><span class="w">
+                </span><span class="nl">"prediction"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Promote"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">]</span><span class="w">
+</span></code></pre></div>
+<p>Detects if the text is a promoter, detractor or an indifferent suggestion.</p>
+
+<p>Supported Languages: [<code>de</code>, <code>en</code>, <code>es</code>]</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>POST https://api.symanto.net/brand-recommendation</code></p>
+<h3 id='query-parameters-7'>Query Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Default</th>
+<th>Optionality</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>domain</td>
+<td>-</td>
+<td>Optional</td>
+<td>Provide analysis domain for domain-specific extraction. When not provided a generic model will be applied.</td>
+</tr>
+</tbody></table>
+<h3 id='available-domains-2'>Available domains</h3>
+<table><thead>
+<tr>
+<th>Enum</th>
+<th>Description</th>
+<th>Supported Languages</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Automotive</td>
+<td>Use this domain to retrieve insights about attitude &amp; behaviour, brand, communication, components, functions &amp; services, location &amp; facility, mobility &amp; transfer, monetary, overall experience, product, service.</td>
+<td>en, de, es</td>
+</tr>
+<tr>
+<td>Banking</td>
+<td>Use this domain to retrieve insights about banking, borrowing, customer service, digital experience, financial fitness, location &amp; facility, product.</td>
+<td>en</td>
+</tr>
+<tr>
+<td>ConsumerElectronics</td>
+<td>Use this domain to retrieve insights about appearance&amp;handling, attitude&amp;behavior, brand, connectivity, delivery service, online experience, performance, product components, retailer, service and software.</td>
+<td>en</td>
+</tr>
+<tr>
+<td>Ecom</td>
+<td>Use this domain to retrieve insights about experience, product and service.</td>
+<td>en, de, es</td>
+</tr>
+<tr>
+<td>Employee</td>
+<td>Use this domain to retrieve insights about associates, communication, culture, development &amp; resources, leadership &amp; planning, overall perception, pay &amp; benefits, role, treatment and work environment.</td>
+<td>en, de</td>
+</tr>
+<tr>
+<td>Hotel</td>
+<td>Use this domain to retrieve insights about associates, booking process, brand, facilities, food&amp;beverage, hotel areas, hotel front office, hotel room, marketing, monetary, overall experience, parking, transport, venue, washrooms, website, wellness/recreation.</td>
+<td>en, de, es</td>
+</tr>
+<tr>
+<td>Pharma</td>
+<td>Use this domain to retrieve insights about disease, duration, healthcare professional, healthtech, interaction, medication names, mode of administration, patient characteristics, product attributes, quality of life, studies &amp; education.</td>
+<td>en</td>
+</tr>
+<tr>
+<td>Restaurant</td>
+<td>Use this domain to retrieve insights about app/website, eating frequency, eating time, health &amp; dietry needs, marketing, overall experience, process, product, service, social, venue.</td>
+<td>en, de, es</td>
+</tr>
+<tr>
+<td>Retail</td>
+<td>Use this domain to retrieve insights about marketing, experience, product, service, staff service, store.</td>
+<td>en, de, es</td>
+</tr>
+</tbody></table>
+<h3 id='request-body-schema-application-json-7'>REQUEST BODY SCHEMA : application/json</h3>
+<p>An array of max <code>64</code> items is allowed. Only the first <code>2000</code> characters from each text will be analyzed.</p>
+
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Optionality</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>id</td>
+<td>string</td>
+<td>Optional</td>
+<td>id of the post</td>
+</tr>
+<tr>
+<td>text</td>
+<td>string</td>
+<td>Required</td>
+<td>the text to analyse</td>
+</tr>
+<tr>
+<td>language</td>
+<td>string</td>
+<td>Required</td>
+<td>language_code of the text</td>
+</tr>
+</tbody></table>
 <h2 id='language-detection'>Language Detection</h2><div class="highlight"><pre class="highlight shell tab-shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"https://api.symanto.net/language-detection"</span> 
 <span class="nt">-H</span> <span class="s2">"accept: application/json"</span> 
 <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> 
@@ -975,9 +1123,9 @@ Remember — to successfully run this you need to authenticate using a valid api
 
 <p>Returned labels:
 language_code of the detected language</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>POST https://api.symanto.net/language-detection</code></p>
-<h3 id='request-body-schema-application-json-7'>REQUEST BODY SCHEMA : application/json</h3>
+<h3 id='request-body-schema-application-json-8'>REQUEST BODY SCHEMA : application/json</h3>
 <p>An array of max <code>64</code> items is allowed.</p>
 
 <table><thead>
