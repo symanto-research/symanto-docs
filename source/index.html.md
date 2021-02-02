@@ -570,6 +570,98 @@ id        | string      | Optional    | id of the post
 text      | string      | Required    | the text to analyse
 language  | string      | Required    | language_code of the text
 
+
+## Brand recommendation analysis
+
+```shell
+curl -X POST "https://api.symanto.net/brand-recommendation" 
+-H "accept: application/json" 
+-H "Content-Type: application/json" 
+-H "x-api-key: opensesame" 
+-d "[{\"id\":1,\"text\":\"Hello I love the service\",\"language\":\"en\"}]"
+```
+
+```python
+import requests
+
+url = "https://api.symanto.net/brand-recommendation"
+
+payload = "[{ \"id\": \"1\", \"text\": \"Hello I love the service\", \"language\": \"en\" }]"
+headers = {
+    "x-api-key": "opensesame",
+    "Content-Type": "application/json"
+}
+response = requests.request("POST", url, headers=headers, data=payload)
+```
+
+```java
+OkHttpClient client = new OkHttpClient().newBuilder().build();
+MediaType mediaType = MediaType.parse("application/json");
+RequestBody body = RequestBody.create("[{ \"id\": \"1\", \"text\": \"Hello I love the service\",\"language\": \"en\"} ]", mediaType);
+Request request = new Request.Builder()
+    .url("https://api.symanto.net/brand-recommendation")
+    .method("POST", "opensesame")
+    .addHeader("x-api-key","opensesame")
+    .build();
+Response response = client.newCall(request).execute();
+```
+
+> The above command returns JSON structured like this:
+
+```json
+[
+    {
+        "id": "1",
+        "predictions": [
+            {
+                "probability": 1.0,
+                "prediction": "Promote"
+            }
+        ]
+    }
+]
+```
+Detects if the text is a promoter, detractor or an indifferent suggestion.
+
+Supported Languages: [`de`, `en`, `es`]
+
+### HTTP Request
+
+`POST https://api.symanto.net/brand-recommendation`
+
+### Query Parameters
+
+Parameter | Default | Optionality | Description
+--------- | ------- | ----------- | -----------
+domain    | -       | Optional    | Provide analysis domain for domain-specific extraction. When not provided a generic model will be applied.
+
+### Available domains
+
+Enum        | Description | Supported Languages
+---------   | ----------- | -----------
+Automotive  | Use this domain to retrieve insights about attitude & behaviour, brand, communication, components, functions & services, location & facility, mobility & transfer, monetary, overall experience, product, service. | en, de, es
+Banking     | Use this domain to retrieve insights about banking, borrowing, customer service, digital experience, financial fitness, location & facility, product.  | en
+ConsumerElectronics     | Use this domain to retrieve insights about appearance&handling, attitude&behavior, brand, connectivity, delivery service, online experience, performance, product components, retailer, service and software.  | en
+Ecom        | Use this domain to retrieve insights about experience, product and service.  | en, de, es
+Employee    | Use this domain to retrieve insights about associates, communication, culture, development & resources, leadership & planning, overall perception, pay & benefits, role, treatment and work environment.  | en, de
+Hotel       | Use this domain to retrieve insights about associates, booking process, brand, facilities, food&beverage, hotel areas, hotel front office, hotel room, marketing, monetary, overall experience, parking, transport, venue, washrooms, website, wellness/recreation.   | en, de, es
+Pharma      | Use this domain to retrieve insights about disease, duration, healthcare professional, healthtech, interaction, medication names, mode of administration, patient characteristics, product attributes, quality of life, studies & education.  | en
+Restaurant  | Use this domain to retrieve insights about app/website, eating frequency, eating time, health & dietry needs, marketing, overall experience, process, product, service, social, venue.  | en, de, es
+Retail      | Use this domain to retrieve insights about marketing, experience, product, service, staff service, store.  | en, de, es
+
+
+
+
+### REQUEST BODY SCHEMA : application/json
+
+An array of max `64` items is allowed. Only the first `2000` characters from each text will be analyzed.
+
+Parameter | Type        | Optionality | Description
+--------- | ----------- | ----------- | -----------
+id        | string      | Optional    | id of the post
+text      | string      | Required    | the text to analyse
+language  | string      | Required    | language_code of the text
+
 ## Language Detection
 
 
