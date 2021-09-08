@@ -357,7 +357,7 @@ all       | bool    | false   | returns all predictions, not only the most proba
 
 ### REQUEST BODY SCHEMA : application/json
 
-An array of max `512` items is allowed.
+An array of max `8` items is allowed.
 
 Parameter | Type        | Optionality | Description
 --------- | ----------- | ----------- | -----------
