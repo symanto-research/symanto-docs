@@ -183,7 +183,7 @@ paths:
       description: |-
         Evaluate the overall tonality of the text.
 
-        Supported Languages: [`en`, `de`, `es`]
+        Supported Languages: [`ar`, `de` , `en`, `es`, `tr`, `zn`]
 
         Returned labels:
         * positive
