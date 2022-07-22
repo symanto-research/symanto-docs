@@ -11,18 +11,29 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v3
 
     - uses: wei/curl@master
       with:
         args: "-XPOST https://converter.swagger.io/api/convert -H 'Content-Type: application/yaml' -H 'Accept: application/json' --data-binary '@specs/openapi.yaml' -o specs/openapi.json" 
 
-    - name: push
-      uses: github-actions-x/commit@v2.6
+    #- name: push
+    #  uses: github-actions-x/commit@v2.6
+    #  with:
+    #    github-token: ${{ secrets.GITHUB_TOKEN }}
+    #    push-branch: 'master'
+    #    commit-message: 'openapi.json generated'
+    #    force-add: 'true'
+    #    files: specs/openapi.json
+    #    name: Auto Commit
+  
+    - name: Commit files
+      run: |
+        git add specs/openapi.json
+        git commit -m "openapi.json generated"
+    
+    - name: Push changes
+      uses: ad-m/github-push-action@master
       with:
-        github-token: ${{ secrets.GITHUB_TOKEN }}
-        push-branch: 'master'
-        commit-message: 'openapi.json generated'
-        force-add: 'true'
-        files: specs/openapi.json
-        name: Auto Commit
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: ${{ github.ref }}
