@@ -419,7 +419,7 @@ Response response = client.newCall(request).execute();
 ```
 Detect the text-level sentiment from a piece of text.
 
-Supported Languages: [`en`, `de`, `es`]
+Supported Languages: [`en`, `de`, `es`, `ar`, `zh`, `tr` ]
 
 Returned labels: [`positive`, `negative`]
 
