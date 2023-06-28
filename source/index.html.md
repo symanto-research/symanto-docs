@@ -549,13 +549,13 @@ Enum        | Description | Supported Languages
 ---------   | ----------- | -----------
 Automotive  | Use this domain to retrieve insights about attitude & behaviour, brand, communication, components, functions & services, location & facility, mobility & transfer, monetary, overall experience, product, service. | en, de, es
 Banking     | Use this domain to retrieve insights about banking, borrowing, customer service, digital experience, financial fitness, location & facility, product.  | en, es
-ConsumerElectronics     | Use this domain to retrieve insights about appearance&handling, attitude&behavior, brand, connectivity, delivery service, online experience, performance, product components, retailer, service and software.  | en, de, es
-Ecom        | Use this domain to retrieve insights about experience, product and service.  | en, de, es
+ConsumerElectronics     | Use this domain to retrieve insights about appearance&handling, attitude&behavior, brand, connectivity, delivery service, online experience, performance, product components, retailer, service and software.  | en, de, es, ar
+Ecom        | Use this domain to retrieve insights about experience, product and service.  | en, de, es, ar
 Employee    | Use this domain to retrieve insights about associates, communication, culture, development & resources, leadership & planning, overall perception, pay & benefits, role, treatment and work environment.  | en, de, es
 Hotel       | Use this domain to retrieve insights about associates, booking process, brand, facilities, food&beverage, hotel areas, hotel front office, hotel room, marketing, monetary, overall experience, parking, transport, venue, washrooms, website, wellness/recreation.   | en, de, es
 Pharma      | Use this domain to retrieve insights about disease, duration, healthcare professional, healthtech, interaction, medication names, mode of administration, patient characteristics, product attributes, quality of life, studies & education.  | en, es
-Restaurant  | Use this domain to retrieve insights about app/website, eating frequency, eating time, health & dietry needs, marketing, overall experience, process, product, service, social, venue.  | en, de, es
-Retail      | Use this domain to retrieve insights about marketing, experience, product, service, staff service, store.  | en, de, es
+Restaurant  | Use this domain to retrieve insights about app/website, eating frequency, eating time, health & dietry needs, marketing, overall experience, process, product, service, social, venue.  | en, de, es, ar
+Retail      | Use this domain to retrieve insights about marketing, experience, product, service, staff service, store.  | en, de, es, ar
 
 
 
