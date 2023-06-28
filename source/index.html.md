@@ -531,7 +531,7 @@ Response response = client.newCall(request).execute();
 ```
 Detects topics, topic category of each topic, and then analyzes the sentiment towards each of the topics mentioned.
 
-Supported Languages: [`de`, `en`, `es`]
+Supported Languages: [`de`, `en`, `es`, `ar`]
 
 ### HTTP Request
 
